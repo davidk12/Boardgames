@@ -1,0 +1,191 @@
+﻿
+
+
+/*-----------------------------------------*/
+#Top-Left-Box
+{
+    width:70%;
+    height:750px;
+    background-color:blue;
+    float:left;
+}
+
+
+
+
+/*-----------------------------------------*/
+
+#Top-Right-Box
+{
+    width:30%;
+    height:400px;
+    background-color:purple;
+    float:left;
+
+}
+
+
+
+/*-----------------------------------------*/
+
+
+
+
+
+/*-----------------------------------------*/
+
+#Bottom-Right-Box
+{
+    width:30%;
+    height:350px;
+    background-color:green;
+    float:right;
+
+}
+
+/*-----------------------------------------*/
+
+.Box-Header
+{
+    width:100%;
+    background-color:yellow;
+    height:20%;
+}
+
+    .Box-Header p
+    {
+        font-weight:bold;
+        font-size:20pt;
+        margin-left:5%;
+        padding-top:20px;
+        color:brown;
+
+    }
+
+
+#Username-Header
+{
+    height:10.6%;
+}
+
+/*-----------------------------------------*/
+
+
+
+.Box-Content
+{
+    width:100%;
+    height:80%;
+    background-color:purple;
+}
+
+#User-Profile-Description
+{
+    height:89.4%;
+}
+
+    #User-Profile-Description h2
+    {
+        font-size:25pt;
+        background-color:purple;
+        margin-left:350px;
+        padding-top:30px;
+        color:white;
+    }
+
+    #User-Bio
+    {
+        padding-top:10px;
+        margin-left:350px;
+        margin-right:70px;
+        padding-top:20px;
+        font-size:15pt;
+        color:wheat;
+    }
+
+#User-Score-Table
+{
+    width:80%;
+    margin-right:auto;
+    margin-left:auto;
+
+
+}
+
+#User-Statistics-Box
+{
+    padding-top:10px;
+}
+
+.li span + span
+{
+    float:right;
+}
+
+#Profile-Image
+{
+    float:left;
+    height:40%;
+    width:35%;
+    margin-left:5%;
+    margin-top:5%;
+    margin-right:5%;
+    border:1px solid gold;
+}
+
+
+/*-----------------------------------------*/
+
+
+.Achievement-List-Div
+{
+    margin-top:20px;
+    height:100px;
+    width:100px;
+    margin-left:20px;
+    float:left;
+    background-image: url('/Images/Games/achievement_box.png');
+    background-size: 100%;
+}
+
+    .Achievement-List-Div p
+    {
+        color:white;
+    }
+
+.Achievement-List-Div img
+{
+    height:100px;
+    width:100px;
+}
+
+
+.Achievement-Description-Div
+{
+    
+    position:absolute;
+    height:100px;
+    width:100px;
+    background-color:yellow;
+    font-weight:bold;
+    border:3px solid gold;    
+    display:none;
+  
+}
+
+    .Achievement-Description-Div p
+    {
+        text-align:center;
+        vertical-align:bottom;
+        margin-top:10px;
+        color:brown;
+    }
+
+/*-----------------------------------------*/
+
+
+
+
+
+
+

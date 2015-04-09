@@ -1,0 +1,115 @@
+﻿@{
+    ViewBag.Title = "PlayerList";
+}
+@section featured {
+
+}
+@Styles.Render("~/Content/Styles/Home/PlayerList.css")
+
+<div id ="Entire-Partial-View">
+    <div id ="Top-Left-Box">
+        <div id ="Player-List-Header" class=".Box-Header"><p>All Players</p></div>
+        <div id ="Player-List-Div">
+            <table id="Player-List-Table" class=".Box-Content">
+                <thead>
+            <tr >
+
+                <th class ="Playerlist-Table-Head" id = "User-Avatar-th" ></th>
+                <th class ="Playerlist-Table-Head" id = "Username-th" >Name</th>
+                <th class ="Playerlist-Table-Head" id = "User-Rating-th" >Rating</th>
+                <th class ="Playerlist-Table-Head" id ="Profile-Link-th"></th>
+            </tr>   
+            </thead>
+
+            @foreach (var user in Model.user_list)
+            {
+                int user_id = user.id;
+                string name = user.username;
+                <tr class="Player-TR">
+  
+                     
+                    @if (System.IO.File.Exists(Request.MapPath(Url.Content("~/Images/Users/" + user.username + ".png"))))
+                    {
+                        <td class ="Username-Avatar-td"><img class = "Username-Avatar-In-List"  src='@Url.Content("~/Images/Users/"+user.username+".png")'/></td>
+                    }
+                    else
+                    {
+                        <td class ="Username-Avatar-td"><img class = "Username-Avatar-In-List"  src='@Url.Content("~/Images/usernotfound.png")'/></td>
+                    }
+                    
+                
+                <td class ="Playerlist-td"><p id ="User-Username">@user.username</p></td>
+                @if (user.rating > 0)
+                {
+                    <td class ="Positive-Rating Playerlist-td">@user.rating</td>
+                }
+                else if(user.rating < 0)
+                {
+                    <td class ="Negative-Rating Playerlist-td">@user.rating</td>
+                }
+                else
+                {
+                    <td class ="Playerlist-td">@user.rating</td>
+                }
+                    <!--<button type ="button" value ="See Profile"></button>-->
+                    <!--<td class ="Playerlist-td">@Html.ActionLink("See Profile", "Profile", "Home",new { user_id = user.id },null)</td>-->
+                    <td class ="Playerlist-td"> 
+                        <div class="Hidden-Profile-Div">
+                            <p class ="Hidden-Link">@Url.Content("~/Images/Users/"+user.username+".png")</p>
+                            <p class ="Hidden-Username">@user.username</p>
+                        </div>
+                        <a href ="/Home/Profile/?user_id=@user.id">
+                            <input class="Profile-Button" type ="button" value ="See Profile" />
+                        </a>
+
+                    </td>
+
+            </tr>
+            }
+
+        </table>
+
+        </div>
+>
+    </div>
+
+    <div id ="Top-Right-Box">
+        
+        
+        <div class ="Box-Header"><p></p></div>
+            
+        <div id="Highest-Rated-Box" class ="Box-Content">
+            @{
+                string highest_name = Model.highest_rated_user.username;
+            }
+            <p id ="Highest-Rated-Username"></p>
+            <img  src='@Url.Content("~/Images/usernotfound.png")'/>
+            
+        </div>
+            
+    </div>
+
+
+
+    <div id ="Bottom-Right-Box">
+        <div class ="Box-Header"><p>Top Players</p></div>
+        <div class ="Box-Content"></div>
+    </div>
+
+</div>
+
+@section scripts {
+    <script>
+        var usrName = "@HttpContext.Current.User.Identity.Name";
+    </script>
+
+    <script type="text/javascript" src='@Url.Content("~/Scripts/corner.js")'></script>
+    <script type="text/javascript" src='@Url.Content("~/Scripts/Home/PlayerList.js")'></script>
+    <script src="~/Scripts/jquery.signalR-1.0.1.js"></script>
+    <script src="~/signalr/hubs"></script>
+
+    <script type="text/javascript" src='@Url.Content("~/Scripts/TableSort/jquery.tablesorter.js")'></script> 
+    '@Url.Content("~/Scripts/TableSort/jquery.tablesorter.js")
+    
+
+}

@@ -1,0 +1,389 @@
+﻿
+@section featured {
+
+}
+@Styles.Render("~/Content/Styles/TicTacToe/Board.css")
+
+<div id ="Sekrit-Div">
+    <audio id="audio" src= '@Url.Content("~/Content/Music/calvinharris.mp3")' preload="auto"></audio>
+</div>
+
+<div id ="Entire-Partial-View">
+    <div id ="Board-Box">
+
+            <table id ="Board-Table">
+                <tr>
+                    <td id = "cell_1" class = "Board-Cell"></td>
+                    <td id = "cell_2" class = "Board-Cell"></td>
+                    <td id = "cell_3" class = "Board-Cell"></td>
+                </tr>
+                <tr>
+                    <td id = "cell_4" class = "Board-Cell"></td>
+                    <td id = "cell_5" class = "Board-Cell"></td>
+                    <td id = "cell_6" class = "Board-Cell"></td>
+                </tr>
+                <tr>
+                    <td id = "cell_7" class = "Board-Cell"></td>
+                    <td id = "cell_8" class = "Board-Cell"></td>
+                    <td id = "cell_9" class = "Board-Cell"></td>
+                </tr>
+            </table>
+
+    </div>
+
+    <div id ="Chat-Box">
+        <div class ="Box-Header"><p>In-Game Chat</p></div>  
+
+        <div id = "Chat-Box-Field" class = "Box-Content">
+            <p class ="Chat-Intro">You're now chatting as @User.Identity.Name</p>
+            <p class ="Chat-Intro"><strong>Play Nice!</strong></p>
+
+            <hr />
+        </div>
+
+        <div id ="Chat-Widgets-Div">
+            <input type="text" id="Lobby-Chat-Window" />
+            <input class="button"  type="button" id="Send-Message-Button" value="Send" />
+        </div>
+            
+    </div>
+
+    
+
+    <div id ="Player-List-Box">
+        <div class ="Box-Header"><p>Players In-Game</p></div>
+        <div class ="Box-Content" id ="Player-List-Content">
+            <table id ="Player-List-Table">
+               
+                <tr>
+                    <th id="User-Avatar-th"></th>
+                    <th id="Username-th">Name</th>
+                    <th id="User-Rating-th">Rating</th>
+                    <th id="Profile-Link-th"></th>
+                </tr>
+
+                @if (Model.user_list != null)
+                {
+                    foreach (var user in Model.user_list)
+                    {
+                        <tr>
+                            @if (System.IO.File.Exists(Request.MapPath(Url.Content("~/Images/Users/" + user.username + ".png"))))
+                            {
+                                <td class ="Username-Avatar-td"><img class = "Username-Avatar-In-List"  src='@Url.Content("~/Images/Users/"+user.username+".png")'/></td>
+                            }
+                            else
+                            {
+                                <td class ="Username-Avatar-td"><img class = "Username-Avatar-In-List"  src='@Url.Content("~/Images/usernotfound.png")'/></td>
+                            }
+                            <td>@user.username</td>
+                            @if (user.rating > 0)
+                            {
+                                <td class ="Positive-Rating Playerlist-td">@user.rating</td>
+                            }
+                            else if(user.rating < 0)
+                            {
+                                <td class ="Negative-Rating Playerlist-td">@user.rating</td>
+                            }
+                            else
+                            {
+                                <td class ="Playerlist-td">@user.rating</td>
+                            }
+                            <td></td>
+                        </tr>
+                    }
+
+                }
+            </table>
+        </div>
+    </div>
+
+    <div id ="Button-Box">
+        
+        <div class ="Box-Content">
+         
+
+            <input class="button" type="button" id="Options-Button" value="Options" />
+        </div>
+
+    </div>
+
+
+    <div id ="Options-Div">
+        <a href ="/Game/Leave/?game_id=@Model.specific_game_instance.id">
+                    <input id="Exit-Button" type ="button" value ="Quit Game" />
+                 </a>
+    </div>
+
+    
+
+</div>
+
+
+
+<div id ="Image-Div">
+    <img id ="fruit" src='@Url.Content("~/Images/pineapple.png")'/>
+</div>
+
+@section scripts {
+    <script>
+        var usrName = "@HttpContext.Current.User.Identity.Name";
+    </script>
+
+    <script>
+        var image_root = '@Url.Content("~/Images/Users/"+HttpContext.Current.User.Identity.Name+".png")';
+    </script>
+
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="http://jqueryrotate.googlecode.com/svn/trunk/jQueryRotate.js"></script>
+    <script src="~/Scripts/jquery.signalR-1.0.1.js"></script>
+    <script src="~/signalr/hubs"></script>
+
+    <script type="text/javascript" src='@Url.Content("~/Scripts/corner.js")'></script>
+    
+
+
+
+
+    <!--Script references. -->
+    <!--The jQuery library is required and is referenced by default in _Layout.cshtml. -->
+    <!--Reference the SignalR library. -->
+    <script src="~/Scripts/jquery.signalR-1.0.1.js"></script>
+    <!--Reference the autogenerated SignalR hub script. -->
+    <script src="~/signalr/hubs"></script>
+
+<script>
+    $(document).ready(function ()
+    {
+        var turn_counter = 0;
+        var grid = [['', '', ''], ['', '', ''], ['', '', '']];
+        var myturn = false;
+        var my_mark = "X";
+        var his_mark = "O";
+        var all_turns = 0;
+
+        $(function ()
+        {
+            var username = '@User.Identity.Name';
+            var group = '@(Model.specific_game_instance.id)';
+            var hub = $.connection.ticTacToeHub;
+            var chat_hub = $.connection.chatHub;
+
+            // Receive TicTacToe
+            hub.client.cellClicked = function (cell_id)
+            {
+                all_turns += 2;
+                myturn = true;
+                $("#" + cell_id).text("O");
+                addToGrid(cell_id, his_mark);
+                var game_over = checkIfWon();
+                var isTie = checkIfTie();
+                if (game_over == true)
+                {
+                    alert("@(User.Identity.Name) You lost :((");
+                    reset();
+                }
+
+                if (isTie == true)
+                {
+                    alert("A tie..");
+                    reset();
+                }
+            };
+
+            // receive chat
+
+            chat_hub.client.addNewMessageToPage = function (username, message)
+            {
+
+                console.log(message);
+                $($('#Chat-Box-Field')).append('<p class = "Chat-Message"><strong class = "Chat-Message-Username">' + username
+            + '</strong>: ' + message + '</p>');
+
+            };
+            //
+
+            $.connection.hub.start().done(function ()
+            {
+                hub.server.join(group);
+                //(chat_hub.server.join(group);
+
+                //Send chat
+                $('#Send-Message-Button').click(function ()
+                {
+
+                    // Call the Send method on the hub. 
+                    // $('#Lobby-Chat-Window').val()
+                    console.log('Calling Sending message', group, username);
+                    $.connection.chatHub.server.send(group, username, $('#Lobby-Chat-Window').val());
+                    // Clear text box and reset focus for next comment. 
+                    $('#message').val('').focus();
+
+                    $("#Lobby-Chat-Div").attr({ scrollTop: $("#Lobby-Chat-Div").attr("scrollHeight") });
+                });
+                //
+
+                // Send TicTacToe
+                $("#Board-Table tr td").click(function (event)
+                {
+                    var cell_id = event.target.id;
+                    if (turn_counter == 0 && '@(User.Identity.Name.ToUpper())' == '@(Model.owner.username.ToUpper())')
+                    {
+                        myturn = true;
+                    }
+
+                    if ($("#" + cell_id).text() == "" && myturn == true)
+                    {
+                        myturn = false;
+                        hub.server.clickCell(group, this.id);
+                        $("#" + cell_id).text("X");
+                        addToGrid(cell_id, my_mark);
+                        turn_counter++;
+                        all_turns += 2;
+
+                        var hasWon = checkIfWon();
+                        var isTie = checkIfTie();
+
+                        if (hasWon == true)
+                        {
+                            alert("@(User.Identity.Name) You won :))");
+
+                            reset();
+                        }
+                        if (isTie == true)
+                        {
+                            alert("A tie..");
+                            reset();
+                        }
+                    }
+                });
+            });
+
+            function addToGrid(cell_id, mark)
+            {
+                switch (cell_id)
+                {
+                    case "cell_1":
+                        grid[0][0] = mark;
+                        break;
+                    case "cell_2":
+                        grid[0][1] = mark;
+                        break;
+                    case "cell_3":
+                        grid[0][2] = mark;
+                        break;
+                    case "cell_4":
+                        grid[1][0] = mark;
+                        break;
+                    case "cell_5":
+                        grid[1][1] = mark;
+                        break;
+                    case "cell_6":
+                        grid[1][2] = mark;
+                        break;
+                    case "cell_7":
+                        grid[2][0] = mark;
+                        break;
+                    case "cell_8":
+                        grid[2][1] = mark;
+                        break;
+                    case "cell_9":
+                        grid[2][2] = mark;
+                        break;
+                }
+            }
+        });
+
+        function checkIfTie()
+        {
+            if (all_turns == 18)
+            {
+                return true;
+                all_turns = 0;
+            }
+            return false;
+        }
+
+        function checkIfWon()
+        {
+            if (grid[0][0] == grid[0][1] && grid[0][0] == grid[0][2] && grid[0][0] != "")
+            {
+                all_turns = 0;
+                return true;
+            }
+
+            else if (grid[1][0] == grid[1][1] && grid[1][0] == grid[1][2] && grid[1][0] != "")
+            {
+                all_turns = 0;
+                return true;
+            }
+
+            else if (grid[2][0] == grid[2][1] && grid[2][0] == grid[2][2] && grid[2][0] != "")
+            {
+                all_turns = 0;
+                return true;
+            }
+
+            else if (grid[0][0] == grid[1][0] && grid[0][0] == grid[2][0] && grid[0][0] != "")
+            {
+                all_turns = 0;
+                return true;
+            }
+
+            else if (grid[0][1] == grid[1][1] && grid[0][1] == grid[2][1] && grid[0][1] != "")
+            {
+                all_turns = 0;
+                return true;
+            }
+
+            else if (grid[0][2] == grid[1][2] && grid[0][2] == grid[2][2] && grid[0][2] != "")
+            {
+                all_turns = 0;
+                return true;
+            }
+
+            else if (grid[0][0] == grid[1][1] && grid[0][0] == grid[2][2] && grid[0][0] != "")
+            {
+                all_turns = 0;
+                return true;
+            }
+
+            else if (grid[0][2] == grid[1][1] && grid[0][2] == grid[2][0] && grid[0][2] != "")
+            {
+                all_turns = 0;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        function reset()
+        {
+            myturn = false;
+            for (i = 0; i < grid.length; i++)
+            {
+                for (j = 0; j < grid.length; j++)
+                {
+                    grid[i][j] = "";
+                }
+            }
+
+            var table_count = 1;
+            while (table_count <= 9)
+            {
+                console.log(table_count);
+                var content = $("#cell_" + table_count).text();
+                $("#cell_" + table_count).text(content.replace(content, ''));
+                table_count++;
+            }
+
+            turn_counter = 0;
+        }
+    });
+</script>
+
+    <script type="text/javascript" src='@Url.Content("~/Scripts/TicTacToe/Board.js")'></script>
+}

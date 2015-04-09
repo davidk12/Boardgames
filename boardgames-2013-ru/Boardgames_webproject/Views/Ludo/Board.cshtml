@@ -1,0 +1,626 @@
+﻿	
+
+    @{
+        ViewBag.Title = "Board";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+     
+    @Styles.Render("~/Content/Styles/Ludo/Board.css")
+                   
+     
+        <div id="leftColumn">
+                <div id="ludoBoard">
+                        <div class="topBottomSection">
+                                <div id="blueCorner">
+                                    <div class="yard">
+                                        <div class="yardSquare" id="b1">1</div><div class="yardSquare" id="b2">2</div>
+                                        <div class="yardSquare" id="b3">3</div><div class="yardSquare" id="b4">4</div>
+                                    </div>
+                                </div>
+                               
+                                <div class="vSquareContainer">
+                                        <div class="whiteSquare" id="24">24</div><div class="whiteSquare" id="25">25</div><div class="whiteSquare" id="26">26</div>
+                                        <div class="whiteSquare" id="23">23</div><div class="redSquare" id="300">300</div><div class="redSquare" id="27">27</div>
+                                        <div class="whiteSquare" id="22">22</div><div class="redSquare" id="301">301</div><div class="whiteSquare" id="28">28</div>
+                                        <div class="whiteSquare" id="21">21</div><div class="redSquare" id="302">302</div><div class="whiteSquare" id="29">29</div>
+                                        <div class="whiteSquare" id="20">20</div><div class="redSquare" id="303">303</div><div class="whiteSquare" id="30">30</div>
+                                        <div class="whiteSquare" id="19">19</div><div class="redSquare" id="304">304</div><div class="whiteSquare" id="31">31</div>
+                                </div>
+                                <div id="redCorner">
+                                    <div class="yard">
+                                        <div class="yardSquare" id="r1">1</div><div class="yardSquare" id="r2">2</div>
+                                        <div class="yardSquare" id="r3">3</div><div class="yardSquare" id="r4">4</div>
+                                    </div>
+                                </div><br />
+                        </div>
+                       
+                        <div class="midSection">
+                                <div class="hSquareContainer">
+                                        <div class="whiteSquare" id="13">13</div><div class="blueSquare" id="14">14</div><div class="whiteSquare" id="15">15</div><div class="whiteSquare" id="16">16</div><div class="whiteSquare" id="17">17</div><div class="whiteSquare" id="18">18</div>
+                                        <div class="whiteSquare" id="12">12</div><div class="blueSquare" id="200">200</div><div class="blueSquare" id="201">201</div><div class="blueSquare" id="202">202</div><div class="blueSquare" id="203">203</div><div class="blueSquare" id="204">204</div>
+                                        <div class="whiteSquare" id="11">11</div><div class="whiteSquare" id="10">10</div><div class="whiteSquare" id="9">9</div><div class="whiteSquare" id="8">8</div><div class="whiteSquare" id="7">7</div><div class="whiteSquare" id="6">6</div>
+                                </div>
+                                <div id="home">
+                                    <div class="homeSquare" id="h1"></div><div class="homeSquare" id="305">305</div><div class="homeSquare" id="h3"></div>
+                                    <div class="homeSquare" id="205">205</div><div class="homeSquare" id="h5"></div><div class="homeSquare" id="405">405</div>
+                                    <div class="homeSquare" id="h7"></div><div class="homeSquare" id="105">105</div><div class="homeSquare" id="h9"></div>
+                                </div>
+                                <div class="hSquareContainer">
+                                        <div class="whiteSquare" id="32">32</div><div class="whiteSquare" id="33">33</div><div class="whiteSquare" id="34">34</div><div class="whiteSquare" id="35">35</div><div class="whiteSquare" id="36">36</div><div class="whiteSquare" id="37">37</div>
+                                        <div class="greenSquare" id="404">404</div><div class="greenSquare" id="403">403</div><div class="greenSquare" id="402">402</div><div class="greenSquare" id="401">401</div><div class="greenSquare" id="400">400</div><div class="whiteSquare" id="38">38</div>
+                                        <div class="whiteSquare" id="44">44</div><div class="whiteSquare" id="43">43</div><div class="whiteSquare" id="42">42</div><div class="whiteSquare" id="41">41</div><div class="greenSquare" id="40">40</div><div class="whiteSquare" id="39">39</div>
+                                </div>
+                        </div>
+                       
+                        <div class="topBottomSection">
+                                <div id="yellowCorner">
+                                    <div class="yard">
+                                        <div class="yardSquare" id="y1">1</div><div class="yardSquare" id="y2">2</div>
+                                        <div class="yardSquare" id="y3">3</div><div class="yardSquare" id="y4">4</div>
+                                    </div>
+                                </div>
+                               
+                                <div class="vSquareContainer">                                
+                                        <div class="whiteSquare" id="5">5</div><div class="yellowSquare" id="104">104</div><div class="whiteSquare" id="45">45</div>
+                                        <div class="whiteSquare" id="4">4</div><div class="yellowSquare" id="103">103</div><div class="whiteSquare" id="46">46</div>
+                                        <div class="whiteSquare" id="3">3</div><div class="yellowSquare" id="102">102</div><div class="whiteSquare" id="47">47</div>
+                                        <div class="whiteSquare" id="2">2</div><div class="yellowSquare" id="101">101</div><div class="whiteSquare" id="48">48</div>
+                                        <div class="yellowSquare" id="1">1</div><div class="yellowSquare" id="100">100</div><div class="whiteSquare" id="49">49</div>
+                                        <div class="whiteSquare" id="52">52</div><div class="whiteSquare" id="51">51</div><div class="whiteSquare" id="50">50</div>
+                                </div>
+                                <div id="greenCorner">
+                                    <div class="yard">
+                                        <div class="yardSquare" id="g1">1</div><div class="yardSquare" id="g2">2</div>
+                                        <div class="yardSquare" id="g3">3</div><div class="yardSquare" id="g4">4</div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                   
+                    <div id="yourTurn">Your turn!<input type="button" value="Roll" id="die"/></div>
+         
+                    <div id="player1" class="player">1</div>
+                    <div id="player2" class="player">2</div>
+                    <div id="player3" class="player">3</div>
+                    <div id="player4" class="player">4</div>
+         
+                </div>
+     
+                        <a href ="/Game/Leave/?game_id=@Model.specific_game_instance.id">
+                    <input id="Exit-Button" type ="button" value ="Quit Game" />
+                 </a>
+     
+    @section scripts {
+    <!--Script references. -->
+        <!--The jQuery library is required and is referenced by default in _Layout.cshtml. -->
+        <!--Reference the SignalR library. -->
+        <script src="~/Scripts/jquery.signalR-1.0.1.js"></script>
+        <!--Reference the autogenerated SignalR hub script. -->
+        <script src="~/signalr/hubs"></script>
+     
+    <script>
+        $(document).ready(function () {
+     
+            var player_turn = 0;
+            var can_roll = false;
+     
+     
+            // Initialazing all variables for the player object array
+            var player = new Array();
+     
+            for (var i = 0; i < 4; i++) {
+                player[i] = {};
+                player[i].pawn = new Array();
+                player[i].goal_count = 0;
+                player[i].id = i;
+            }
+            player[0].username = '@Model.user_list[0].username';
+            player[1].username = '@Model.user_list[1].username';
+            player[2].username = '@Model.user_list[2].username';
+            player[3].username = '@Model.user_list[3].username';
+     
+            // Make pawn a property
+            for (var i = 0; i < 4; i++) {
+                for (var j = 0; j < 4; j++) {
+                    player[i].pawn[j] = {};
+                }
+            }
+     
+            // Set pictures for the pawns
+            for (var i = 0; i < 4; i++) {
+                player[0].pawn[i].image_location = '<img class="pawn_image" id="100' + i + '" src="@Url.Content("~/Images/Games/pawn_yellow.png")" alt="" />';
+            }
+     
+            for (var i = 0; i < 4; i++) {
+                player[1].pawn[i].image_location = '<img class="pawn_image" id="200' + i + '" src="@Url.Content("~/Images/Games/pawn_blue.png")" alt="" />';
+            }
+     
+            for (var i = 0; i < 4; i++) {
+                player[2].pawn[i].image_location = '<img class="pawn_image" id="300' + i + '" src="@Url.Content("~/Images/Games/pawn_red.png")" alt="" />';
+            }
+     
+            for (var i = 0; i < 4; i++) {
+                player[3].pawn[i].image_location = '<img class="pawn_image" id="400' + i + '" src="@Url.Content("~/Images/Games/pawn_green.png")" alt="" />';
+            }
+     
+            // Set pawn yard location
+            player[0].pawn[0].yard_location = 'y1';
+            player[0].pawn[1].yard_location = 'y2';
+            player[0].pawn[2].yard_location = 'y3';
+            player[0].pawn[3].yard_location = 'y4';
+     
+            player[1].pawn[0].yard_location = 'b1';
+            player[1].pawn[1].yard_location = 'b2';
+            player[1].pawn[2].yard_location = 'b3';
+            player[1].pawn[3].yard_location = 'b4';
+     
+            player[2].pawn[0].yard_location = 'r1';
+            player[2].pawn[1].yard_location = 'r2';
+            player[2].pawn[2].yard_location = 'r3';
+            player[2].pawn[3].yard_location = 'r4';
+     
+            player[3].pawn[0].yard_location = 'g1';
+            player[3].pawn[1].yard_location = 'g2';
+            player[3].pawn[2].yard_location = 'g3';
+            player[3].pawn[3].yard_location = 'g4';
+     
+     
+            // Set pawn current location
+            player[0].pawn[0].current_location = 'y1';
+            player[0].pawn[1].current_location = 'y2';
+            player[0].pawn[2].current_location = 'y3';
+            player[0].pawn[3].current_location = 'y4';
+     
+            player[1].pawn[0].current_location = 'b1';
+            player[1].pawn[1].current_location = 'b2';
+            player[1].pawn[2].current_location = 'b3';
+            player[1].pawn[3].current_location = 'b4';
+     
+            player[2].pawn[0].current_location = 'r1';
+            player[2].pawn[1].current_location = 'r2';
+            player[2].pawn[2].current_location = 'r3';
+            player[2].pawn[3].current_location = 'r4';
+     
+            player[3].pawn[0].current_location = 'g1';
+            player[3].pawn[1].current_location = 'g2';
+            player[3].pawn[2].current_location = 'g3';
+            player[3].pawn[3].current_location = 'g4';
+     
+     
+            // Set pawn goal location
+            player[0].pawn[0].goal_location = 105;
+            player[0].pawn[1].goal_location = 105;
+            player[0].pawn[2].goal_location = 105;
+            player[0].pawn[3].goal_location = 105;
+     
+            player[1].pawn[0].goal_location = 205;
+            player[1].pawn[1].goal_location = 205;
+            player[1].pawn[2].goal_location = 205;
+            player[1].pawn[3].goal_location = 205;
+     
+            player[2].pawn[0].goal_location = 305;
+            player[2].pawn[1].goal_location = 305;
+            player[2].pawn[2].goal_location = 305;
+            player[2].pawn[3].goal_location = 305;
+     
+            player[3].pawn[0].goal_location = 405;
+            player[3].pawn[1].goal_location = 405;
+            player[3].pawn[2].goal_location = 405;
+            player[3].pawn[3].goal_location = 405;
+     
+     
+            // Set pawn last tiel before homerun
+            player[0].pawn[0].before_home = 51;
+            player[0].pawn[1].before_home = 51;
+            player[0].pawn[2].before_home = 51;
+            player[0].pawn[3].before_home = 51;
+     
+            player[1].pawn[0].before_home = 12;
+            player[1].pawn[1].before_home = 12;
+            player[1].pawn[2].before_home = 12;
+            player[1].pawn[3].before_home = 12;
+     
+            player[2].pawn[0].before_home = 25;
+            player[2].pawn[1].before_home = 25;
+            player[2].pawn[2].before_home = 25;
+            player[2].pawn[3].before_home = 25;
+     
+            player[3].pawn[0].before_home = 38;
+            player[3].pawn[1].before_home = 38;
+            player[3].pawn[2].before_home = 38;
+            player[3].pawn[3].before_home = 38;
+     
+            // Set pawn first tiel in homerun
+            player[0].pawn[0].before_home = 100;
+            player[0].pawn[1].before_home = 100;
+            player[0].pawn[2].before_home = 100;
+            player[0].pawn[3].before_home = 100;
+     
+            player[1].pawn[0].before_home = 200;
+            player[1].pawn[1].before_home = 200;
+            player[1].pawn[2].before_home = 200;
+            player[1].pawn[3].before_home = 200;
+     
+            player[2].pawn[0].before_home = 300;
+            player[2].pawn[1].before_home = 300;
+            player[2].pawn[2].before_home = 300;
+            player[2].pawn[3].before_home = 300;
+     
+            player[3].pawn[0].before_home = 400;
+            player[3].pawn[1].before_home = 400;
+            player[3].pawn[2].before_home = 400;
+            player[3].pawn[3].before_home = 400;
+     
+     
+            // Set pawn player id
+            player[0].pawn[0].player_id = 0;
+            player[0].pawn[1].player_id = 0;
+            player[0].pawn[2].player_id = 0;
+            player[0].pawn[3].player_id = 0;
+     
+            player[1].pawn[0].player_id = 1;
+            player[1].pawn[1].player_id = 1;
+            player[1].pawn[2].player_id = 1;
+            player[1].pawn[3].player_id = 1;
+     
+            player[2].pawn[0].player_id = 2;
+            player[2].pawn[1].player_id = 2;
+            player[2].pawn[2].player_id = 2;
+            player[2].pawn[3].player_id = 2;
+     
+            player[3].pawn[0].player_id = 3;
+            player[3].pawn[1].player_id = 3;
+            player[3].pawn[2].player_id = 3;
+            player[3].pawn[3].player_id = 3;
+     
+     
+            // Set pawn id
+            player[0].pawn[0].id = 0;
+            player[0].pawn[1].id = 1;
+            player[0].pawn[2].id = 2;
+            player[0].pawn[3].id = 3;
+     
+            player[1].pawn[0].id = 0;
+            player[1].pawn[1].id = 1;
+            player[1].pawn[2].id = 2;
+            player[1].pawn[3].id = 3;
+     
+            player[2].pawn[0].id = 0;
+            player[2].pawn[1].id = 1;
+            player[2].pawn[2].id = 2;
+            player[2].pawn[3].id = 3;
+     
+            player[3].pawn[0].id = 0;
+            player[3].pawn[1].id = 1;
+            player[3].pawn[2].id = 2;
+            player[3].pawn[3].id = 3;
+     
+            // Set pawn board enter tiel
+            player[0].pawn[0].board_enter = 1;
+            player[0].pawn[1].board_enter = 1;
+            player[0].pawn[2].board_enter = 1;
+            player[0].pawn[3].board_enter = 1;
+     
+            player[1].pawn[0].board_enter = 14;
+            player[1].pawn[1].board_enter = 14;
+            player[1].pawn[2].board_enter = 14;
+            player[1].pawn[3].board_enter = 14;
+     
+            player[2].pawn[0].board_enter = 27;
+            player[2].pawn[1].board_enter = 27;
+            player[2].pawn[2].board_enter = 27;
+            player[2].pawn[3].board_enter = 27;
+     
+            player[3].pawn[0].board_enter = 40;
+            player[3].pawn[1].board_enter = 40;
+            player[3].pawn[2].board_enter = 40;
+            player[3].pawn[3].board_enter = 40;
+     
+            $(function ()
+            {
+                var group = '@(Model.specific_game_instance.id)';
+                var hub = $.connection.ludoHub;
+     
+     
+                //Receiver
+                hub.client.pawnMoved = function (pawn_start, pawn_end, pawn_id)
+                {
+       
+                    var turn = player_turn % 4;
+                    $("#" + pawn_start).empty();
+     
+                    $("#" + pawn_end).prepend(player[turn].pawn[pawn_id].image_location);
+                   
+                    player_turn++;
+                };
+     
+                /*
+                // Recevive turn
+                hub.client.hideName = function (turn)
+                {
+                    if (turn == player[turn].id) {
+                        $('#yourTurn').show();
+                    }
+                    else {
+                        $('#yourTurn').hide();
+                    }
+                }
+                */
+     
+     
+                $.connection.hub.start().done(function ()
+                {
+                    hub.server.join(group);
+     
+                    $("#y1").prepend(player[0].pawn[0].image_location);
+                    $("#y2").prepend(player[0].pawn[1].image_location);
+                    $("#y3").prepend(player[0].pawn[2].image_location);
+                    $("#y4").prepend(player[0].pawn[3].image_location);
+     
+                    $("#b1").prepend(player[1].pawn[0].image_location);
+                    $("#b2").prepend(player[1].pawn[1].image_location);
+                    $("#b3").prepend(player[1].pawn[2].image_location);
+                    $("#b4").prepend(player[1].pawn[3].image_location);
+     
+                    $("#r1").prepend(player[2].pawn[0].image_location);
+                    $("#r2").prepend(player[2].pawn[1].image_location);
+                    $("#r3").prepend(player[2].pawn[2].image_location);
+                    $("#r4").prepend(player[2].pawn[3].image_location);
+     
+                    $("#g1").prepend(player[3].pawn[0].image_location);
+                    $("#g2").prepend(player[3].pawn[1].image_location);
+                    $("#g3").prepend(player[3].pawn[2].image_location);
+                    $("#g4").prepend(player[3].pawn[3].image_location);
+     
+     
+                    // hub.server.showName(group, player_turn % 4);
+     
+                    // Click to generat random number
+                    var number_rolled = null;
+                    $("#die").click(function ()
+                    {
+                        number_rolled = Math.floor(Math.random() * 6) + 1;
+                        alert(number_rolled);
+     
+                    });
+     
+                    // Click pawn to move it
+                    $(document).on('click', 'img', undefined, function (event)
+                    {
+                   
+                        var turn = player_turn % 4;
+                        img_id = event.target.id;
+                       
+                        // Check the name of the player trying to click with the name of player whos turn it is and if he has rolled the die
+                        if ((player[turn].username.toUpperCase() == '@User.Identity.Name.ToUpper()') && number_rolled != null)
+                        {
+                            // Pawns for player 0 have id from 1000-1003
+                            // Pawns for player 1 have id from 2000-2003
+                            // player id + 1 * 1000 makes sure he can only move his pawns
+                            var can_move_pawn = (turn + 1) * 1000;
+                            if (can_move_pawn > 999 && can_move_pawn < 1004)
+                            {
+                                img_id -= 1000;
+                                move_pawn(turn, img_id, number_rolled, group);
+                            }
+                            if (can_move_pawn > 1999 && can_move_pawn < 2004)
+                            {
+                                img_id -= 2000;
+                                move_pawn(turn, img_id, number_rolled, group);
+                            }
+                            if (can_move_pawn > 2999 && can_move_pawn < 3004)
+                            {
+                                img_id -= 3000;
+                                move_pawn(turn, img_id, number_rolled, group);
+                            }
+                            if (can_move_pawn > 3999 && can_move_pawn < 4004)
+                            {
+                                img_id -= 4000;
+                                move_pawn(turn, img_id, number_rolled, group);
+                            }
+                            player_turn++;
+                            number_rolled = null;
+                        }
+                    });
+     
+                    // Function that moves the pawns on the board
+                    function move_pawn(player_index, pawn_id, die_number, group)
+                    {
+                        // get pawn start location
+                        var start_location = player[player_index].pawn[pawn_id].current_location;
+     
+                        // Checks if the pawn finished in the goal
+                        var entered_goal = false;
+     
+                        // If pawn in yard is clicked
+                        if (player[player_index].pawn[pawn_id].current_location == player[player_index].pawn[pawn_id].yard_location)
+                        {
+                            $("#" + player[player_index].pawn[pawn_id].yard_location).empty();
+                            player[player_index].pawn[pawn_id].current_location = player[player_index].pawn[pawn_id].board_enter;
+                            $("#" + player[player_index].pawn[pawn_id].board_enter).prepend(player[player_index].pawn[pawn_id].image_location);
+                        }
+                            // If pawn clicked is on the board
+                        else
+                        {
+                            // Move the pawn as many times as the number of the random die_number
+                            for (i = 0; i < die_number; i++)
+                            {
+     
+                                // Home run cases
+     
+                                // If yellow(0) pawn moves into the homerun
+                                if ((player[player_index].pawn[pawn_id].current_location == 51) && player_index == 0)
+                                {
+                                    $("#" + player[player_index].pawn[pawn_id].current_location).empty();
+                                    player[player_index].pawn[pawn_id].current_location = 100;
+                                }
+                                    // If blue(1) pawn moves into the homerun
+                                else if ((player[player_index].pawn[pawn_id].current_location == 12) && player_index == 1)
+                                {
+                                    $("#" + player[player_index].pawn[pawn_id].current_location).empty();
+                                    player[player_index].pawn[pawn_id].current_location = 200;
+                                }
+                                    // If red(2) pawn moves into the homerun
+                                else if ((player[player_index].pawn[pawn_id].current_location == 25) && player_index == 2)
+                                {
+                                    $("#" + player[player_index].pawn[pawn_id].current_location).empty();
+                                    player[player_index].pawn[pawn_id].current_location = 300;
+     
+                                }
+                                    // If green(3) pawn moves into the homerun
+                                else if ((player[player_index].pawn[pawn_id].current_location == 38) && player_index == 3)
+                                {
+                                    $("#" + player[player_index].pawn[pawn_id].current_location).empty();
+                                    player[player_index].pawn[pawn_id].current_location = 400;
+                                }
+     
+                                    // Move the pawn on the board
+     
+                                else
+                                {
+                                    $("#" + player[player_index].pawn[pawn_id].current_location).empty();
+                                    player[player_index].pawn[pawn_id].current_location += 1;
+     
+                                    // make sure the current_location is betweene 1 and 52 if it is not in a homerun
+                                    if (player[player_index].pawn[pawn_id].current_location < 99)
+                                    {
+                                        player[player_index].pawn[pawn_id].current_location = (player[player_index].pawn[pawn_id].current_location % 53);
+                                        // if the modulus of current_location is zero
+                                        if (player[player_index].pawn[pawn_id].current_location == 0)
+                                        {
+                                            player[player_index].pawn[pawn_id].current_location = 1;
+                                        }
+                                    }
+                                }
+                                $("#" + player[player_index].pawn[pawn_id].current_location).prepend(player[player_index].pawn[pawn_id].image_location);
+     
+                                // Pawn collisions
+     
+                                if (die_number - i == 1 &&
+     
+     
+                                    // Pawn moves is in win location and has moves left
+     
+                                    // If yellow(0) pawn moves into the win location
+                                if ((player[player_index].pawn[pawn_id].current_location == 105) && player_index == 0)
+                                {
+                                    $("#" + player[player_index].pawn[pawn_id].current_location).empty();
+                                    player[player_index].pawn[pawn_id].current_location += (i + 1) - die_number;
+                                    $("#" + player[player_index].pawn[pawn_id].current_location).prepend(player[player_index].pawn[pawn_id].image_location);
+                                    break;
+                                }
+                                // If blue(1) pawn moves into the win location
+                                if ((player[player_index].pawn[pawn_id].current_location == 205) && player_index == 1)
+                                {
+                                    $("#" + player[player_index].pawn[pawn_id].current_location).empty();
+                                    player[player_index].pawn[pawn_id].current_location += (i + 1) - die_number;
+                                    $("#" + player[player_index].pawn[pawn_id].current_location).prepend(player[player_index].pawn[pawn_id].image_location);
+                                    break;
+                                }
+                                // If red(2) pawn moves into the win location
+                                if ((player[player_index].pawn[pawn_id].current_location == 305) && player_index == 2)
+                                {
+                                    $("#" + player[player_index].pawn[pawn_id].current_location).empty();
+                                    player[player_index].pawn[pawn_id].current_location += (i + 1) - die_number;
+                                    $("#" + player[player_index].pawn[pawn_id].current_location).prepend(player[player_index].pawn[pawn_id].image_location);
+                                    break;
+                                }
+                                // If green(3) pawn moves into the win location
+                                if ((player[player_index].pawn[pawn_id].current_location == 405) && player_index == 3)
+                                {
+                                    $("#" + player[player_index].pawn[pawn_id].current_location).empty();
+                                    player[player_index].pawn[pawn_id].current_location += (i + 1) - die_number;
+                                    $("#" + player[player_index].pawn[pawn_id].current_location).prepend(player[player_index].pawn[pawn_id].image_location);
+                                    break;
+                                }
+                            } // forloop ends
+     
+                            // Pawn stops in win location with no moves left
+     
+                            // If yellow(0) pawn moves into the win location
+                            if ((player[player_index].pawn[pawn_id].current_location == 105) && player_index == 0)
+                            {
+                                $("#" + player[player_index].pawn[pawn_id].current_location).empty();
+                                player[player_index].goal_count += 1;
+                                entered_goal = true;
+                            }
+                            // If blue(1) pawn moves into the win location
+                            if ((player[player_index].pawn[pawn_id].current_location == 205) && player_index == 1)
+                            {
+                                $("#" + player[player_index].pawn[pawn_id].current_location).empty();
+                                player[player_index].goal_count += 1;
+                                entered_goal = true;
+                            }
+                            // If red(2) pawn moves into the win location
+                            if ((player[player_index].pawn[pawn_id].current_location == 305) && player_index == 2)
+                            {
+                                $("#" + player[player_index].pawn[pawn_id].current_location).empty();
+                                player[player_index].goal_count += 1;
+                                entered_goal = true;
+                            }
+                            // If green(3) pawn moves into the win location
+                            if ((player[player_index].pawn[pawn_id].current_location == 405) && player_index == 3)
+                            {
+                                $("#" + player[player_index].pawn[pawn_id].current_location).empty();
+                                player[player_index].goal_count += 1;
+                                entered_goal = true;
+                            }
+                        }
+     
+                        /*
+                                            // checks if any pawns image got deleted when another pawn moved over it
+                                            for (i = 1; i < 53; i++)
+                                            {
+                                                for (j = 0; j < 4; j++)
+                                                {
+                                                    for (k = 0; k < 4; k++)
+                                                    {
+                                                        if (i == player[j].pawn[k].current_location)
+                                                        {
+                                                            if (!($('#' + i).find('img').length()))
+                                                            {
+                                                                $('#' + player[j].pawn[k].current_location).prepend(player[j].pawn[k].image_location);
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                         
+                                            */
+                        // Checks for the pawns end location
+                        var end_location = player[player_index].pawn[pawn_id].current_location;
+     
+                        // sends move information to other clients
+                        hub.server.movePawn(group, start_location, end_location, pawn_id);
+     
+                    }
+                });
+            });
+            /*
+            function checkPawnCollision(checkPlayer)
+            {
+                for (i = 0; i < 3; i++)
+                {
+                    for (j = i + 1; j < 4; j++)
+                    {
+                        //alert(checkPlayer[player_turn].pawn[j].current_location);
+                        //alert(checkPlayer[player_turn].pawn[i].current_location);
+                        if (checkPlayer[player_turn].pawn[i].current_location == checkPlayer[player_turn].pawn[j].current_location)
+                        {
+                            checkPlayer[player_turn].pawn[j].current_location -= 1;
+     
+                            // Make sure the pawn stays in the map
+                            if (checkPlayer[player_turn].pawn[j].current_location == 0)
+                            {
+                                checkPlayer[player_turn].pawn[j].current_location = 52;
+                            }
+                            checkPawnCollision(checkPlayer);
+                        }
+                    }
+                }
+            }*/
+     
+        });
+    </script>
+    }
+

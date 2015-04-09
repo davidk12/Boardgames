@@ -1,0 +1,315 @@
+﻿
+
+
+/*-----------------------------------------*/
+#Top-Left-Box
+{
+    width:70%;
+    height:750px;
+    background-color:blue;
+    float:left;
+}
+
+
+
+
+/*-----------------------------------------*/
+
+#Top-Right-Box
+{
+    width:30%;
+    height:400px;
+    background-color:purple;
+    float:left;
+
+}
+
+
+
+/*-----------------------------------------*/
+
+#Bottom-Left-Box
+{
+    width:70%;
+    height:350px;
+    background-color:blue;
+    float:left;
+
+}
+
+
+
+
+/*-----------------------------------------*/
+
+#Bottom-Right-Box
+{
+    width:30%;
+    height:350px;
+    background-color:green;
+    float:left;
+
+}
+
+/*-----------------------------------------*/
+
+.Box-Header
+{
+    width:100%;
+    background-color:yellow;
+    height:21%;
+}
+
+    .Box-Header p
+    {
+        font-weight:bold;
+        font-size:20pt;
+        margin-left:5%;
+        padding-top:20px;
+        color:brown;
+
+    }
+
+#Player-List-Header
+{
+    height:2%;
+    width:100%;
+    background-color:yellow;
+    height:11%;
+}
+
+#Player-List-Header p
+    {
+        font-weight:bold;
+        font-size:20pt;
+        margin-left:5%;
+        padding-top:20px;
+        color:brown;
+
+    }
+/*-----------------------------------------*/
+
+
+
+.Box-Content
+{
+    width:100%;
+    height:80%;
+    background-color:purple;
+    overflow:auto;
+}
+
+#Player-List-Div
+{
+    height:89%;
+    width:100%;
+
+    background-color:purple;
+    overflow:auto;
+}
+
+
+
+/*-----------------------------------------*/
+
+.Username-Avatar-In-List
+{
+    width:50px;
+    height:50px;
+}
+
+
+#Player-List-Table td
+{
+    
+    border-right:1px solid purple;
+    vertical-align:middle;
+    text-align:center;
+}
+
+#Player-List-Table
+{
+    background-color:yellow;
+    width:100%;
+    font-weight:bold;
+    color:brown;
+    cursor:pointer;
+}
+
+#Player-List-Table th
+{
+    background-color:gold;
+    text-align:left;
+    border:1px solid purple;
+    padding:10px;
+
+    height:25px;
+    text-align:center;
+
+}
+
+.Playerlist-Table-Head
+{
+    height:20px;
+}
+
+#User-Avatar-th
+{
+    width:5%;
+}
+
+#Username-th
+{
+    width:37.5%;
+}
+
+#User-Rating-th
+{
+    width:37.5%;
+}
+
+#Profile-Link-th
+{
+    width:10%;
+}
+
+
+
+.Username-Avatar-td
+{
+    background-color:gold;
+}
+
+
+
+    #Player-List-Table tr
+    {
+        border-bottom: 1px solid purple;
+    }
+
+
+
+
+.Positive-Rating
+{
+    color: green;
+}
+
+.Negative-Rating
+{
+    color:red;
+}
+
+/*-----------------------------------------*/
+
+#Highest-Rated-Box img
+{
+    width:50%;
+    width:50%;
+    margin-left:25%;
+    margin-top:10%;
+    border:2px solid gold;
+
+}
+
+#Highest-Rated-Box p
+{
+    font-size:20pt;
+    width:100%;
+    height:10%;
+    background-color:gold;
+    text-align:center;
+    padding-top:10px;
+    font-weight:bold;
+
+
+}
+
+    #Highest-Rated-Username a:visited   
+    {
+        color:brown;
+    }
+
+    #Highest-Rated-Username a:hover
+    {
+        color:white;
+    }
+
+/*-----------------------------------------*/
+
+#Game-Top-Player
+{
+    width:100%;
+    height:100%;
+    color:brown;
+    background-color:yellow;  
+
+}
+
+#Top-Player-Box
+{   
+    border-top:1px solid purple;
+    border-bottom:1px solid purple;
+}
+
+#Game-Top-Player th
+{
+    height:30px;
+    background-color:gold;
+    color:brown;
+    border-bottom:1px solid purple;
+    padding-top:10px;
+}
+
+#Game-Top-Player td
+{
+    height:60px;
+
+    border-bottom:1px solid purple;
+    vertical-align:middle;
+}
+
+#Game-Top-Player td p
+{
+    text-align:center;
+}
+
+
+/*-----------------------------------------*/
+
+#Top-Right-Box div + div
+{
+    vertical-align:middle;
+}
+
+#Selected-Table-Row
+{
+    border:1px solid brown;
+    background-color:gold;
+}
+
+.Profile-Button
+{
+    width:100%;
+    height:50px;
+    color:brown;
+    font-weight:bold;
+
+    
+
+    background: #fceabb; /* Old browsers */
+    background: -moz-linear-gradient(top, #fceabb 0%, #fccd4d 50%, #f8b500 51%, #fbdf93 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fceabb), color-stop(50%,#fccd4d), color-stop(51%,#f8b500), color-stop(100%,#fbdf93)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #fceabb 0%,#fccd4d 50%,#f8b500 51%,#fbdf93 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #fceabb 0%,#fccd4d 50%,#f8b500 51%,#fbdf93 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #fceabb 0%,#fccd4d 50%,#f8b500 51%,#fbdf93 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #fceabb 0%,#fccd4d 50%,#f8b500 51%,#fbdf93 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceabb', endColorstr='#fbdf93',GradientType=0 ); /* IE6-9 */
+}
+
+
+.Hidden-Profile-Div
+{
+    display:none;
+}
+

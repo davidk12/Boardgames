@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/Styles/Master.css")
+    
+        
+        @Styles.Render("~/Content/Styles/Account/Account.css")
+        
+        @Scripts.Render("~/bundles/modernizr")
+        
+    </head>
+    <body>
+        <audio id="rave" src= '@Url.Content("~/Content/Music/calvinharris.mp3")' preload="auto"></audio>
+        <!-- Login buttons begin -->
+
+        @if (Request.IsAuthenticated)
+        {
+           
+                <div id ="Login-Message">
+       
+                
+ 
+                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) 
+                    {
+                        @Html.AntiForgeryToken()
+                        
+                       <p id ="Logout-Span"> 
+                           
+                           <span><a id="rave-link" href="Javascript:void(0)"><input class="rave-off" id="rave-button" type ="button" value ="Rave Mode On"/></a></span>
+                           <span id="logout-link"><a  href="javascript:document.getElementById('logoutForm').submit()">Log off</a></span>
+                        </p>
+                    }
+   
+                </div>
+               
+        }
+        <header>
+            <div id="Main-Border">
+                <!--<h1 id ="Main-Header">Boardgames.is</h1>-->
+                <img id ="Site-Banner" src='@Url.Content("~/Images/Games/banner.png")'/>
+            </div>
+        </header>
+
+         @if (Request.IsAuthenticated) 
+             {
+                
+                 
+                 <div id="Main-Border-Menu-Box">
+                    <ul id="Main-Border-Menu">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Player List", "PlayerList", "Home")</li>
+                        <li id ="Welcome-Span">
+                    Hello, @Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
+                </li>
+                        <li>
+
+                    </ul>
+                </div>
+            } 
+            else 
+            {
+                <div id="Main-Border-Menu-Box">
+                    <ul id="Main-Border-Menu">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Player List", "PlayerList", "Home")</li>
+                        <li class ="Account-Buttons">@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li> <!-- Register -->
+                        <li class ="Account-Buttons">@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li> <!-- Login -->
+                    </ul>
+                </div>
+            }
+        <!-- Login buttons end -->
+        
+
+        <div id ="Terms-And-Conditions-Div">
+            <div id ="Terms-Header"><span id ="Terms-Paragraph">Terms and Conditions</span><span id ="Close-Terms-Link"><a href="javascript:void(0)">Close</a></span></div>
+            <div>
+                <p>
+                    Ball tip shoulder pig hamburger ground round tail. Short loin short ribs turkey venison rump bresaola jerky andouille pork pig prosciutto ball tip salami pork chop bacon. Shank spare ribs ham boudin turducken short loin. Flank jowl ground round t-bone andouille tri-tip meatloaf, spare ribs tongue ball tip capicola.
+                    <br /><br />
+                    Shoulder leberkas jowl meatball bresaola shank cow pastrami turkey pig jerky t-bone. Corned beef kielbasa strip steak pork. Fatback pork belly venison biltong flank beef shank swine spare ribs corned beef jowl brisket salami capicola. Corned beef spare ribs ham, pancetta pork salami short loin t-bone andouille. Leberkas jerky drumstick ground round, jowl pastrami beef shankle turkey biltong tenderloin bresaola. Venison ribeye filet mignon, flank salami swine ham hock tri-tip fatback ball tip boudin drumstick bacon sirloin.
+                    <br /><br />
+                    T-bone ham tail ribeye turkey shankle. Venison turkey short ribs capicola pancetta drumstick brisket filet mignon ham, bacon spare ribs pastrami pig boudin frankfurter. Filet mignon ball tip t-bone beef ribs jerky. Prosciutto flank andouille ham hock, drumstick hamburger rump tenderloin sausage swine ham boudin filet mignon.
+                    <br /><br />
+                    Pastrami prosciutto salami short ribs meatball leberkas rump. Tail swine bacon ball tip fatback ham pork loin pastrami. Chuck shankle tail, bresaola frankfurter ham capicola short ribs sirloin. Shank brisket spare ribs venison, corned beef leberkas beef ribs turkey flank pastrami strip steak.
+                    <br /><br />
+                    Andouille prosciutto ham, shoulder short loin turkey salami swine. Ground round jowl jerky shoulder. Bacon pork loin sirloin chicken pork belly kielbasa tri-tip hamburger doner ham hock. Turducken sirloin bresaola biltong beef pork loin ham hock boudin leberkas.
+                </p>
+            </div>
+        </div>
+
+        <div id ="Contact-Info-Div">
+            <div id ="Contact-Info-Header"><span id ="Info-Paragraph">Contact Info</span><span id ="Close-Info-Link"><a href="javascript:void(0)">Close</a></span></div>
+            <div>
+                <table id ="Contact-Info-Table">
+                    <tr>
+                        <td>Aron Bachmann Árnason</td>
+                        <td>arona12@ru.is</td>
+                    </tr>
+                    <tr>
+                        <td>Bjarni Egill Ögmundsson</td>
+                        <td>bjarni12@ru.is</td>
+                    </tr>
+                    <tr>
+                        <td>Davíð Hafþór Kristinsson</td>
+                        <td>davidk12@ru.is</td>
+                    </tr>
+                    <tr>
+                        <td>Sigurbjörn Kristjánsson</td>
+                        <td>sigurbjorn12@ru.is</td>
+                    </tr>
+                    <tr>
+                        <td>Sveinn Þórhallsson</td>
+                        <td>sveinnt12@ru.is</td>
+                    </tr>
+                    <tr>
+                        <td>Unnar Kristjánsson</td>
+                        <td>unnar12@ru.is</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+        
+
+        <div>
+            @RenderSection("featured", required: false) <!-- passa að henda ekki -->
+            @RenderBody()  <!-- kallar í View -->   
+        </div>
+
+        <div id="Contact-Info">
+            <p>
+                <span><a href ="https://baconipsum.com/" onclick="window.open(this.href);return false;">Bacon Ipsum</a></span>
+                <span>|</span>
+                <span><a  id = "Contact-Info-Link" href ="javascript:void(0)">Contact info</a></span>
+                <span>|</span>
+                <span><a  id = "Terms-And-Conditions" href ="javascript:void(0)">Terms and Conditions</a></span>
+            </p>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+         <script type="text/javascript" src='@Url.Content("~/Scripts/corner.js")'></script>
+        <script type="text/javascript" src='@Url.Content("~/Scripts/Account.js")'></script>
+        <script type="text/javascript" src='@Url.Content("~/Scripts/BoardGameScripts.js")'></script>
+        <script>
+            $("#Main-Border-Menu-Box ul li").corner("1000px");
+        </script>
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

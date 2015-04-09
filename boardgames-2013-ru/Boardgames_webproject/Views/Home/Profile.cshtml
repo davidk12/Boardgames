@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+
+}
+@Styles.Render("~/Content/Styles/Home/Profile.css")
+
+<div id ="Entire-Partial-View">
+    <div id ="Top-Left-Box">
+        <div class ="Box-Header" id = "Username-Header"><p>@Model.specific_user.username</p></div>
+        <div class ="Box-Content" id ="User-Profile-Description">
+            
+                <p ><img id ="Profile-Image"  src='@Url.Content("~/Images/Users/"+ Model.specific_user.username +".png")'/></p>
+                <h2>Bio</h2>
+                
+                <p id ="User-Bio">@Model.specific_user.bio</p>
+            
+
+        </div>
+    </div>
+
+    <div id ="Top-Right-Box">
+        
+        
+        <div class ="Box-Header" ><p>Earned Achievements</p></div>
+
+       
+        <div class ="Box-Content">
+             @if (Model.game_achievements != null)
+                {
+                    foreach(var achievement in Model.game_achievements)
+                    {
+                
+                            <div class ="Achievement-List-Div">
+                            <div class ="Achievement-Description-Div"><p>@achievement.description</p></div>
+                            <img src='@Url.Content("~/Images/Games/achievement.png")'/>
+                            <p>@achievement.name</p>
+                        </div>
+                
+                
+                    }
+                }
+            else
+            {
+             }
+            
+        </div>
+            
+    </div>
+
+
+
+    <div id ="Bottom-Right-Box">
+        <div class ="Box-Header"><p>Game Statistics</p></div>
+        <div class ="Box-Content" id ="User-Statistics-Box">
+
+
+
+            <table id ="User-Score-Table">
+                <tr>
+                    <td>Total Games Played</td>
+                    <td>@Model.specific_user_scores.total_games</td>
+                </tr>
+                <tr>
+                    <td>Wins</td>
+                    <td>@Model.specific_user_scores.total_wins</td>
+                </tr>
+                <tr>
+                    <td>Losses</td>
+                    <td>@Model.specific_user_scores.total_losses</td>
+                </tr>
+                <tr>
+                    <td>Ties</td>
+                    <td>@Model.specific_user_scores.total_ties</td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+@section scripts {
+    <script>
+        var usrName = "@HttpContext.Current.User.Identity.Name";
+    </script>
+
+    </script>
+    <script src="~/Scripts/jquery.signalR-1.0.1.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script type="text/javascript" src='@Url.Content("~/Scripts/Home/Profile.js")'></script>
+
+}

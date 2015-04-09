@@ -1,0 +1,777 @@
+﻿
+
+
+/*-----------------------------------------*/
+#Top-Left-Box
+{
+    width:70%;
+    height:400px;
+    background-color:blue;
+    float:left;
+}
+
+
+
+
+/*-----------------------------------------*/
+
+#Top-Right-Box
+{
+    width:30%;
+    height:400px;
+    background-color:purple;
+    float:left;
+
+}
+
+
+
+/*-----------------------------------------*/
+
+#Bottom-Left-Box
+{
+    width:70%;
+    height:350px;
+    background-color:blue;
+    float:left;
+
+}
+
+
+
+
+/*-----------------------------------------*/
+
+#Bottom-Right-Box
+{
+    width:30%;
+    height:350px;
+    background-color:green;
+    float:left;
+
+}
+
+/*-----------------------------------------*/
+
+.Box-Header
+{
+    width:100%;
+    background-color:yellow;
+    height:20%;
+}
+
+    .Box-Header p
+    {
+        font-weight:bold;
+        font-size:20pt;
+        margin-left:5%;
+        padding-top:20px;
+        color:brown;
+
+    }
+
+/*-----------------------------------------*/
+
+
+
+.Box-Content
+{
+    width:100%;
+    height:80%;
+    background-color:purple;
+    overflow:auto;
+}
+
+
+
+.Game-List-Div
+{
+    height:200px;
+    width:200px;
+    margin-left:20px;
+    float:left;
+}
+
+.Game-List-Div img
+{
+    height:100px;
+    width:120px;
+    margin-top:20px;
+    
+}
+
+    .Game-List-Div p
+    {
+        width:100%;
+
+    }
+
+.Game-List-Div p a
+{
+    text-decoration:none;
+    color:white;
+    background-color:black; 
+    
+}
+
+/*-----------------------------------------*/
+
+.Game-Rating
+{
+    padding-top:20px;
+    padding-bottom:3px;
+    padding-left:6%;
+    font-weight:bold;
+}
+
+.Game-Profile-Description 
+{
+    color:white;
+    padding-right:300px;
+}
+
+    .Game-Profile-Description img
+    {
+        float:left;
+        height:150px;
+        margin-right:4%;
+    }
+
+    .Game-Profile-Description p
+    {
+        padding-left:4%;
+    }
+
+    .Game-Description
+    {
+        padding-top:80px;
+        padding-right:4%;
+    }
+   
+
+/*-----------------------------------------*/
+
+.Achievement-List-Div
+{
+    margin-top:20px;
+    height:100px;
+    width:100px;
+    margin-left:20px;
+    float:left;
+    background-image: url('/Images/Games/achievement_box.png');
+    background-size: 100%;
+}
+
+    .Achievement-List-Div p
+    {
+        color:white;
+    }
+
+.Achievement-List-Div img
+{
+    height:100px;
+    width:100px;
+}
+
+/*-----------------------------------------*/
+
+#Highest-Rated-Game-Photo
+{
+    height:150px;
+    width:200px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:30px;
+    color:white;
+
+}
+
+    #Highest-Rated-Game-Photo img
+    {
+        height:100%;
+        width:100%;
+        
+    }
+
+    .Box-Content p[align] a
+    {
+    
+        color:white;
+        font-size:20pt;
+    }
+
+        .Box-Content p[align] a:hover
+        {
+            color:yellow;
+        }
+
+
+
+
+.Username-Avatar-In-List
+{
+    width:50px;
+    height:50px;
+}
+
+
+#Player-List-Table td
+{
+    
+    border-right:1px solid purple;
+    text-align:center;
+}
+
+#Player-List-Table
+{
+    background-color:yellow;
+    width:100%;
+    font-weight:bold;
+    color:brown;
+}
+
+#Player-List-Table th
+{
+    background-color:gold;
+    text-align:left;
+    border:1px solid purple;
+    padding:10px;
+
+    height:25px;
+    text-align:center;
+
+}
+
+.Playerlist-Table-Head
+{
+    height:20px;
+}
+
+#User-Avatar-th
+{
+    width:5%;
+}
+
+#Username-th
+{
+    width:37.5%;
+}
+
+#User-Rating-th
+{
+    width:37.5%;
+}
+
+#Profile-Link-th
+{
+    width:20%;
+}
+
+
+
+.Username-Avatar-td
+{
+    background-color:gold;
+}
+
+.Playerlist-td
+{
+
+}
+
+    #Player-List-Table tr
+    {
+        border-bottom: 1px solid purple;
+    }
+
+
+/*-----------------------------------------*/
+
+.Positive-Rating
+{
+    color: green;
+}
+
+.Negative-Rating
+{
+    color:red;
+}
+
+
+#Highest-Rated-Photo
+{
+    width:50%;
+    width:50%;
+    margin-left:25%;
+    margin-top:10%;
+    border:2px solid gold;
+
+}
+
+#Highest-Rated-Username
+{
+    font-size:20pt;
+    width:100%;
+    height:10%;
+    background-color:gold;
+    text-align:center;
+    padding-top:10px;
+    font-weight:bold;
+
+
+}
+
+    #Highest-Rated-Username a:visited   
+    {
+        color:brown;
+    }
+
+    #Highest-Rated-Username a:hover
+    {
+        color:white;
+    }
+
+/*-----------------------------------------*/
+
+#Game-Top-Player
+{
+    width:100%;
+    height:100%;
+    color:brown;
+    background-color:yellow;  
+
+}
+
+#Top-Player-Box
+{   
+    border-top:1px solid purple;
+    border-bottom:1px solid purple;
+}
+
+#Game-Top-Player th
+{
+    height:30px;
+    background-color:gold;
+    color:brown;
+    border-bottom:1px solid purple;
+    padding-top:10px;
+}
+
+#Game-Top-Player td
+{
+    height:60px;
+    padding:10px;
+    border-bottom:1px solid purple;
+}
+
+#Game-Top-Player td p
+{
+    text-align:center;
+}
+
+
+
+
+.Image-Table-Header
+{
+    width:10%;
+}
+
+.Username-Table-Header, .Wins-Table-Header, .Losses-Table-Header
+{
+
+    width:25%;
+
+    
+
+}
+
+.Win-Ratio.Table-Header
+{
+    width:25%;
+
+}
+
+
+    #Game-Top-Player tr td img
+    {
+        border:1px solid purple;
+        width:80%;
+        height:80%;
+        padding:2%;
+        
+     
+    }
+
+
+#Lobby-Chat-Window
+{
+    height:69%;
+    background-color:yellow;
+    color:brown;
+    border:1px solid purple;
+    width:99.5%;
+}
+
+#message
+{
+    width:80%;  
+    float:left;
+    height:70%;
+    margin-top:2px;
+    
+}
+
+#sendmessage
+{
+    height:100%;
+    width:18%;
+    float:right;
+}
+
+
+#Lobby-Chat-Div
+{
+    height:10%;
+    overflow:hidden;
+    border:1px solid purple;
+    width:99.5%;
+}
+
+.Chat-Message
+{
+    padding-left:10px;
+    margin-top:10px;
+}
+
+.Chat-Message-Username
+{
+    color:black;
+}
+
+
+
+#Active-Games-Table
+{
+    width:100%;
+    background-color:yellow;
+    color:brown;
+    height:100%;
+    border:1px solid purple;
+}
+
+    #Active-Games-Table thead
+    {
+        background-color:gold;
+        border-bottom:1px solid purple;
+    }
+
+    #Active-Games-Table tr td
+    {
+        text-align:center;
+        border-right:1px solid purple;
+        border-bottom:1px solid purple;
+        padding:2%;
+    }
+
+        #Active-Games-Table thead tr th
+        {
+            height:20px;
+            padding:10px;
+        }
+
+.Chat-Intro
+{
+    text-align:center;  
+}
+
+
+#leftColumn
+{
+        width:920px;
+        height:1200px;
+ 
+        padding:10px;
+       
+        border-style:solid;
+       
+        background:orange;
+ 
+        overflow:hidden;
+        clear: both;
+}
+ 
+#ludoBoard
+{
+        margin:auto;
+        padding: 10px;
+        width:900px;
+        height:900px;
+        border-style:solid;
+        border-radius:10px;
+       
+        background:black;
+ 
+        overflow:hidden;
+        clear: both;
+}
+ 
+#yourTurn
+{
+    font-size:70px;
+    color: white;
+   
+    display:block;
+ 
+    text-align:center;
+ 
+    margin-top:20px;
+}
+ 
+#die
+{
+    height:120px;
+    width:200px;
+ 
+    border-radius:15px;
+    border-color:darkmagenta;
+    border-width:7px;
+ 
+    background-color:purple;
+   
+    font-size:70px;
+    color:white;
+ 
+    display:block;
+ 
+    margin-left: auto;
+    margin-right: auto;
+}
+ 
+.player
+{
+    display:block;
+    text-align:center;
+}
+
+#home
+{
+        width:180px;
+        height:180px;
+
+        float: left;
+
+        display:block;
+        
+        background:brown;
+        
+        border-radius:15px;
+}
+
+.homeSquare
+{
+        float:left;
+
+        width:50px;
+        height:50px;
+        
+        margin:5px;
+
+        background:lemonchiffon;/*change to brown when finished*/
+        border-radius:10px;
+        
+        text-align:center;
+        vertical-align:middle;
+        
+        color:black;
+}
+
+.yard 
+{
+        width:120px;
+        height:120px;
+        
+        display: block;
+        margin:120px;
+}
+
+.yardSquare
+{
+        float:left;
+
+        width:50px;
+        height:50px;
+        
+        margin:5px;
+
+        background:white;
+        border-radius:10px;
+        
+        text-align:center;
+        vertical-align:middle;
+        
+        color:black;
+}
+
+.pawn_image 
+{
+    width: 100%;
+    height: 100% ;
+
+}
+
+/*delete when finished*/
+#h1, #h3, #h5, #h7, #h9 
+{
+    background-color: brown;
+}
+
+#blueCorner
+{
+        width:360px;
+        height:360px;
+
+        background:blue;
+
+        border-radius:35px;
+
+        float:left;
+}
+
+#redCorner
+{
+        width:360px;
+        height:360px;
+
+        background:red;
+
+        float:right;
+
+        border-radius:35px;
+}
+
+#greenCorner
+{
+        width:360px;
+        height:360px;
+
+        background:green;
+        
+        float:right;    
+
+        border-radius:35px;
+}
+
+#yellowCorner
+{
+        width:360px;
+        height:360px;
+
+        background:yellow;
+        
+        float:left;
+        
+        border-radius:35px;
+}
+.topBottomSection
+{
+        width:900;
+        height:360;
+}
+
+.midSection
+{
+        width:900;
+        height:180;
+}
+
+.vSquareContainer
+{
+        float:left;
+        
+        background:black;
+
+        height:360px;
+        width:180px;
+}
+
+.hSquareContainer
+{
+        float:left;
+        
+        background:black;
+
+        height:180px;
+        width:360px;
+}
+
+.whiteSquare
+{
+        float:left;
+
+        width:50px;
+        height:50px;
+        
+        margin:5px;
+
+        background:white;
+        border-radius:10px;
+        
+        text-align:center;
+        vertical-align:middle;
+        
+        color:black;
+}
+
+.redSquare
+{
+        float:left;
+
+        width:50px;
+        height:50px;
+        
+        Margin:5px;
+
+        background:red;
+        border-radius:10px;
+}
+
+.blueSquare
+{
+        float:left;
+
+        width:50px;
+        height:50px;
+        
+        Margin:5px;
+
+        background:blue;
+        border-radius:10px;
+}
+
+.yellowSquare
+{
+        float:left;
+
+        width:50px;
+        height:50px;
+        
+        Margin:5px;
+
+        background:yellow;
+        border-radius:10px;
+}
+
+.greenSquare
+{
+        float:left;
+
+        width:50px;
+        height:50px;
+        
+        Margin:5px;
+
+        background:green;
+        border-radius:10px;
+}
+

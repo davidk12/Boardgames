@@ -1,0 +1,333 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+
+}
+
+@Styles.Render("~/Content/Styles/Game/Lobby.css")
+
+<div id ="Entire-Partial-View">
+    <div id ="Top-Left-Box">
+        <div class ="Box-Header"><p>@Model.specific_game_instance.owner.username 's Game</p></div>
+        <div class ="Box-Content">
+            <table id ="Player-List-Table">
+               
+                <tr>
+                    <th id="User-Avatar-th"></th>
+                    <th id="Username-th">Name</th>
+                    <th id="User-Rating-th">Rating</th>
+                    <th id="Profile-Link-th"></th>
+                </tr>
+                <tr>
+                    @if (System.IO.File.Exists(Request.MapPath(Url.Content("~/Images/Users/" + Model.specific_game_instance.owner.username + ".png"))))
+                    {
+                        <td class ="Username-Avatar-td"><img class = "Username-Avatar-In-List"  src='@Url.Content("~/Images/Users/"+Model.specific_game_instance.owner.username+".png")'/></td>
+                    }
+                    else
+                    {
+                        <td class ="Username-Avatar-td"><img class = "Username-Avatar-In-List"  src='@Url.Content("~/Images/usernotfound.png")'/></td>
+                    }
+                    <td>@Model.specific_game_instance.owner.username</td>
+                    <td>@Model.specific_game_instance.owner.rating</td>
+                    <td></td>
+                </tr>
+                @if (Model.user_list != null)
+                {
+                    foreach (var user in Model.user_list)
+                    {
+                        <tr>
+                            @if (System.IO.File.Exists(Request.MapPath(Url.Content("~/Images/Users/" + user.username + ".png"))))
+                            {
+                                <td class ="Username-Avatar-td"><img class = "Username-Avatar-In-List"  src='@Url.Content("~/Images/Users/"+user.username+".png")'/></td>
+                            }
+                            else
+                            {
+                                <td class ="Username-Avatar-td"><img class = "Username-Avatar-In-List"  src='@Url.Content("~/Images/usernotfound.png")'/></td>
+                            }
+                            <td>@user.username</td>
+                            @if (user.rating > 0)
+                            {
+                                <td class ="Positive-Rating Playerlist-td">@user.rating</td>
+                            }
+                            else if(user.rating < 0)
+                            {
+                                <td class ="Negative-Rating Playerlist-td">@user.rating</td>
+                            }
+                            else
+                            {
+                                <td class ="Playerlist-td">@user.rating</td>
+                            }
+                            <td></td>
+                        </tr>
+                    }
+
+                }
+            </table>
+
+        </div>
+    </div>
+
+    <div id ="Top-Right-Box">
+        
+        
+        <div class ="Box-Header"><p>Achievements</p></div>
+        
+        <div class ="Box-Content" >
+            @if (Model.game_achievement_list != null)
+            {
+                foreach (var achievement in Model.game_achievement_list)
+                {
+                    string achievement_id = "achievement" + achievement.achievement_id;
+                        <div class ="Achievement-List-Div" id = @achievement_id>
+                            <div class ="Achievement-Description-Div"><p>@achievement.description</p></div>
+                            <img src='@Url.Content("~/Images/Games/achievement.png")'/>
+                            <p>@achievement.name</p>
+                        </div>
+                }
+
+            }
+            
+        </div>
+        
+            
+
+    </div>
+
+
+    <!--
+    @if (Model.specific_game_instance.game_id == 0)
+    {
+        @Html.ActionLink("Start Game", "Board", "TicTacToe", new { game_instance_id = Model.specific_game_instance.game_id }, null);
+    }
+    else
+    {
+        @Html.ActionLink("Start Game", "Board", "Ludo", new { game_instance_id = Model.specific_game_instance.game_id }, null);
+    }
+        -->
+    
+
+    <div id ="Bottom-Left-Box">
+        <div class ="Box-Header"><p>Lobby Chat</p></div>
+        <div class ="Box-Content" id ="Lobby-Chat-Window">
+            <p class ="Chat-Intro">You're now chatting as @User.Identity.Name</p>
+            <p class ="Chat-Intro"><strong>Play Nice!</strong></p>
+            <hr />
+        </div>
+        <div id ="Lobby-Chat-Div">
+            <input type="text" id="message" />
+            <input type="button" id="sendmessage" value="Send" />
+        </div>
+    </div>
+
+    <div id ="Bottom-Middle-Box">
+        <div class ="Box-Header"><p>Options</p></div>
+        <div class ="Box-Content">
+            @if (User.Identity.Name == Model.specific_game_instance.owner.username)
+            {
+                <a href ="/Game/Leave/?game_id=@Model.specific_game_instance.id">
+                    <input class="Profile-Button" type ="button" value ="End Game" />
+                </a>
+                
+            }
+            else
+            {
+                <a href ="/Game/Leave/?game_id=@Model.specific_game_instance.id">
+                    <input class="Profile-Button" type ="button" value ="Quit Game" />
+                 </a>
+            }
+            
+
+        </div>
+    </div>
+
+
+
+    <div id ="Bottom-Right-Box">
+        <div class ="Box-Header"><p>Top Players</p></div>
+        <div class ="Box-Content">
+            <table id="Game-Top-Player">
+            <tr>
+                <th>Player</th>
+                <th>Wins</th>
+                <th>Losses</th>
+                <th>Win Ratio</th>
+            </tr>
+        @if(Model.user_rating_list != null)
+        {
+            foreach (var userRating in Model.user_rating_list)
+            {
+                <tr>
+
+      
+                    <td class ="Username-Table-Header">
+                        <p><img src='@Url.Content("~/Images/Users/" + userRating.username + ".png")'/></p>
+                        <p>@userRating.username</p>
+
+                    </td>
+                    <td class ="Wins-Table-Header"><p>@userRating.total_wins</p></td>
+                    <td class ="Losses-Table-Header"><p>@userRating.total_losses</p></td>
+                    <td class ="Win-Ratio-Table-Header"><p>@( (userRating.total_wins * 100 / userRating.total_games * 100) / 100)%</p></td>
+                </tr>
+            }
+        }
+
+         
+    </table>
+
+        </div>
+    </div>
+
+</div>
+
+@section scripts {
+
+   <script src="~/Scripts/jquery.signalR-1.0.1.js"></script>
+   <script src="~/signalr/hubs"></script>
+    <script>
+        var usrName = "@HttpContext.Current.User.Identity.Name";
+
+
+        ////////////////////////////
+
+        ///var hub = $.connection.ticTacToeHub;
+        var username = '@User.Identity.Name';
+        var group = '@(Model.specific_game_instance.id)';
+        var hub = $.connection.ticTacToeHub;
+        var chat_hub = $.connection.chatHub;
+
+
+        chat_hub.client.addNewMessageToPage = function (username, message)
+        {
+            console.log(message);
+            $($('#Lobby-Chat-Window')).append('<p class = "Chat-Message"><strong class = "Chat-Message-Username">' + username
+         + '</strong>: ' + message + '</p>');
+
+        };
+        //
+
+        $.connection.chat_hub.start().done(function ()
+        {
+            alert("lol");
+            //hub.server.join(group);
+            chat_hub.server.join(group);
+
+            //Send chat
+            $('#sendmessage').click(function ()
+            {
+
+                // Call the Send method on the hub.
+                // $('#Lobby-Chat-Window').val()
+
+
+                console.log('Calling Sending message', group, username);
+
+                $($('#Chat-Box-Field')).append('<p class = "Chat-Message"><strong class = "Chat-Message-Username">' + username
+                + '</strong>: ' + $('#message').val() + '</p>');
+
+                $.connection.chatHub.server.send(group, username, $('#Lobby-Chat-Window').val());
+                // Clear text box and reset focus for next comment.
+                $('#message').val('').focus();
+
+                //$("#Lobby-Chat-Div").attr({ scrollTop: $("#Lobby-Chat-Div").attr("scrollHeight") });
+            });
+        });
+        /////////////////////////////
+    </script>
+
+    <script>
+        setInterval(function ()                                                         // repopulates the user list every                                      
+        {
+            
+            $.ajax({                                                                    // calling an action in the game controller than returns a Json result
+                url: '/Game/getActivePlayerList',                                           
+                data: { game_id: parseInt(@Model.specific_game_instance.id) },          
+                type: 'GET',
+                success: function (list_model)
+                {
+                    $('#Player-List-Table').empty();
+                    if (list_model.is_game_full == true)
+                    {
+                        location.reload();
+                    }
+                    populate_table(list_model);
+                }
+            });
+
+        }, 5000);
+
+
+        function populate_table(list_model)
+        {
+            var length = list_model.user_list.length;
+            $('#Player-List-Table').append('<tr>'
+                                                + '<th id="User-Avatar-th"></th>'
+                                                + '<th id="Username-th">Name</th>'
+                                                + '<th id="User-Rating-th">Rating</th>'
+                                                + '<th id="Profile-Link-th"></th>'
+                                        + '</tr>');
+            for (var count = 0; count < length; count++)
+            {
+
+                $('#Player-List-Table tr:last').after('<tr>'
+                    + '<td class ="Username-Avatar-td"><img class = "Username-Avatar-In-List"  src="/Images/Users/' + list_model.user_list[count].username + '.png"/></td>'
+                    + '<td>' + list_model.user_list[count].username + '</td>'
+                    + '<td>' + list_model.user_list[count].rating + '</td>'
+                    + '<td></td>'
+                    + '</tr>');
+            }
+        }
+
+
+        ////////////////////////////
+
+        ///var hub = $.connection.ticTacToeHub;
+        var username = '@User.Identity.Name';
+        var group = '@(Model.specific_game_instance.id)';
+        var hub = $.connection.ticTacToeHub;
+        var chat_hub = $.connection.chatHub;
+
+
+        chat_hub.client.addNewMessageToPage = function (username, message)
+        {
+            console.log(message);
+            $($('#Lobby-Chat-Window')).append('<p class = "Chat-Message"><strong class = "Chat-Message-Username">' + username
+         + '</strong>: ' + message + '</p>');
+
+        };
+        //
+        
+        $.connection.chat_hub.start().done(function ()
+        {
+            alert("lol");
+            //hub.server.join(group);
+            chat_hub.server.join(group);
+
+            //Send chat
+            $('#sendmessage').click(function ()
+            {
+
+                // Call the Send method on the hub.
+                // $('#Lobby-Chat-Window').val()
+
+
+                console.log('Calling Sending message', group, username);
+
+                $($('#Chat-Box-Field')).append('<p class = "Chat-Message"><strong class = "Chat-Message-Username">' + username
+                + '</strong>: ' + $('#message').val() + '</p>');
+
+                $.connection.chatHub.server.send(group, username, $('#Lobby-Chat-Window').val());
+                // Clear text box and reset focus for next comment.
+                $('#message').val('').focus();
+
+                //$("#Lobby-Chat-Div").attr({ scrollTop: $("#Lobby-Chat-Div").attr("scrollHeight") });
+            });
+        });
+            /////////////////////////////
+    </script>
+
+
+
+    <!--<script type="text/javascript" src='@Url.Content("~/Scripts/Game/Lobby.js")'></script>-->
+
+}

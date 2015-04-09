@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace Boardgames_webproject.Models.ViewModels
+{
+    public class AchievementVM
+    {
+        public List<Achievement> achievement_list {get; set;}
+        public Achievement specific_achievement { get; set; }
+
+        public int current_user_id = -1;
+    }
+}

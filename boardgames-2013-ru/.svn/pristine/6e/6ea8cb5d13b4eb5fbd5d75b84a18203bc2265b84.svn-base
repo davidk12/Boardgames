@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "PlayerList";
+}
+
+<div id="Main-Box">
+    <h2 id="Player-List-Header">Player List</h2>
+    <hr />
+    <div id="Player-List-Box">
+        <table id="Player-List-Table">
+            <tr>
+                <th>Name</th>
+                <th>Rating</th>
+            </tr>
+            <!-- það sem razor á að búa til -->
+            <tr>
+                <td>@Html.ActionLink("Aron", "Profile", "Home")</td>
+                <td>46</td>
+            </tr>
+            <!-- það sem razor á að búa til -->
+
+            <!-- Henda þessu þegar Razor kemur -->
+            <tr>
+                <td>Unnar</td>
+                <td>23</td>
+            </tr>
+            <tr>
+                <td>David</td>
+                <td>3</td>
+            </tr>
+            <!-- Henda þessu þegar Razor kemur -->
+        </table>
+    </div>
+
+</div>
+
+
+<div id="Top-Right-Content-Box">
+    <span>Highest Rated Game</span>
+
+    <div id="Highest-Rated-Game">
+        
+    </div>
+
+</div>
+
+<div id="Bottom-Right-Content-Box">
+    <span>Highest Rated Player</span>
+
+    <table id="Highest-Rated-Player-Table">
+            <tr>
+                <th>Name</th>
+                <th>Rating</th>
+            </tr>
+        <!-- það sem razor á að búa til -->
+        <tr>
+            <td>Sveinn</td>
+            <td>137</td>
+        </tr>
+        <!-- það sem razor á að búa til -->
+
+        <!-- Henda þessu þegar Razor kemur -->
+        <tr>
+            <td>Siddi</td>
+            <td>75</td>
+        </tr>
+        <tr>
+            <td>Aron</td>
+            <td>46</td>
+        </tr>
+        <tr>
+            <td>Unnar</td>
+            <td>23</td>
+        </tr>
+        <tr>
+            <td>David</td>
+            <td>3</td>
+        </tr>
+        <!-- Henda þessu þegar Razor kemur -->
+    </table>
+
+</div>

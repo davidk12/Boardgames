@@ -1,0 +1,341 @@
+﻿/* 
+    ---- CSS Reset Start ----
+*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+
+/*
+    ---- CSS Reset Ends ----
+
+    ---- CSS Start ----
+*/
+
+* {
+    font-family: Calibri;
+}
+    
+#Main-Border {
+    border: solid 1px black;
+    height: 130px;
+}
+
+#Main-Box {
+    margin-left: 12%;
+    margin-right: 0%;
+    border: solid 1px red;
+    width: 50%;
+    float: left;
+    display: inline;
+}
+        #Main-box h2 {
+            display: inline;
+        }
+
+        #Main-box span {
+            float: right;
+        }
+
+        .Game-Icon {
+            border: solid 1px green;
+
+            margin-left: 2%;
+            margin-right: 2%;
+            margin-top: 2%;
+            margin-bottom: 2%;
+
+            width: 170px;
+            height: 130px;
+
+            display: inline-block;
+
+            position: relative;
+        }
+        .Game-Icon span {
+            position: absolute;
+            bottom: 0;
+        }
+
+        .Game-Icon img {
+            height: 110px;
+            width: 170px; 
+        }
+
+        #Game-Avatar {
+            border: solid 1px black;
+            height:120px;
+            width: 120px;
+            display: inline-block;
+            float: left;
+
+        }
+        #Game-Description-Box {
+            border: solid 1px blue;
+            height:120px;
+            width: 75%;
+            display: inline;
+            float: right;
+            word-wrap: break-word;
+            overflow: auto;
+        }
+        
+        #Game-Description-header {
+            margin-left: 25%;
+            display: block;
+        }
+
+        #Active-Games {
+            clear: both;
+        }
+
+        #Active-Game-Table {
+            border: solid 1px black;
+            width: 100%
+        }
+
+        #Active-Game-Table td{
+            border: solid 1px black;
+        }
+
+        #Active-Game-Table-Box {
+            overflow: auto;
+        }
+
+        #Join-Game-Button {
+            margin-left: 25%;
+            height: 40px;
+            width: 150px;
+        }
+
+        #Create-Game-Button {
+            float: right;
+            margin-right: 25%;
+            height: 40px;
+            width: 150px;
+        }
+
+
+#Top-Right-Content-Box { 
+    margin-left: 0%;
+    margin-right: 12%;
+    width: 25%;
+    height: 200px;
+    float: right;
+    display: inline;
+
+    border: solid 1px pink;
+
+    text-align: center;
+}
+        #Top-Right-Content-Box span {
+            display: block;
+        }
+
+        #Highest-Rated-Game {
+            margin-left: auto;
+            margin-right:auto;
+
+            border: solid black 1px;
+            width: 90%;
+            height:130px;
+        }
+        #Game-Achievement-Box {
+            width: 100%;
+            height: 184px;
+            overflow: auto;
+            float: left;
+
+            border: solid 1px green;
+
+            text-align: left;
+        }
+
+        .Game-Achievement {
+            width: 80px;
+            height: 80px;
+            display: inline-block;
+            border: solid 1px blue;
+            text-align: center;
+        }
+
+        .Game-Achievement img {
+            width: 60px;
+            height: 60px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .Game-Achievement span {
+            margin-left: auto;
+            margin-right: auto;
+            clear: both;
+            font-size: 12px;
+        }
+
+        #Player-List-Box {
+            width: 98%;
+            height: 400px;
+            border: solid 1px green;
+            overflow: auto;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #Player-List-Table {
+            border: solid 1px black;
+            width: 100%
+        }
+        #Player-List-Table td {
+            border: solid 1px black;
+
+        }
+
+#Bottom-Right-Content-Box { 
+    margin-left: 0%;
+    margin-right: 12%;
+    width: 25%;
+    height: 200px;
+    float: right;
+    clear: right;
+
+    text-align: center;
+
+    border: solid 1px pink;
+}
+
+        #Highest-Rated-Player-Table {
+            border-collapse: collapse;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #Highest-Rated-Player-Table tr{
+            border: 1px solid black;
+            text-align: left;
+        }
+
+        #Highest-Rated-Player-Table tr td {
+            
+            border: 1px solid black;
+        }
+
+        #Game-Top-Player {
+            border-collapse: collapse;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #Game-Top-Player tr{
+            border: 1px solid black;
+            text-align: left;
+        }
+
+        #Game-Top-Player tr td {
+            border: 1px solid black;
+            
+        }
+
+#Contact-Info {
+    border: solid 1px blue;
+    width: 76%;
+
+    margin-left: auto;
+    margin-right: auto;
+    clear: both;
+    height: 35px;
+}
+

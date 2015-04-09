@@ -1,0 +1,174 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+
+}
+
+@Styles.Render("~/Content/Styles/Game/Profile.css")
+<div><audio id="rave" src= '@Url.Content("~/Content/Music/bloodrave.mp3")' preload="auto"></audio></div>
+<div id ="Entire-Partial-View">
+    <div id ="Top-Left-Box">
+        <div class ="Box-Header"><p>@Model.specific_game.name</p></div>
+        <div class ="Box-Content Game-Profile-Description">
+            <p class ="Game-Rating">User Rating: @Model.specific_game.rating</p>
+            <p class ="Game-Description">
+                
+                <img src='@Url.Content("~/Images/Games/" + Model.specific_game.name + "Icon.png")'/>
+                
+                @Model.specific_game.description
+            </p>
+            
+            
+        </div>
+        <div id ="Create-Game-Buttons">
+            @if (Request.IsAuthenticated)
+            {
+                <a href ="@Url.Action("Create", "Game")?game_id=@Model.specific_game.id"><input id="Create-New-Game-Button" type ="button" value ="Create Game"/></a>
+                
+            }
+            else
+            {
+                <p>You need to be logged in to create a new game.</p>
+            }
+        </div>
+    </div>
+
+    <div id ="Top-Right-Box">
+        
+        
+        <div class ="Box-Header" ><p>Achievements</p></div>
+
+            
+        <div class ="Box-Content">
+        
+                @if (Model.game_achievements != null)
+                {
+                    foreach (var achievement in Model.game_achievements)
+                    {
+                        string achievement_id = "achievement" + achievement.achievement_id;
+                        <div class ="Achievement-List-Div" id = @achievement_id>
+                            <div class ="Achievement-Description-Div"><p>@achievement.description</p></div>
+                            <img src='@Url.Content("~/Images/Games/achievement.png")'/>
+                            <p>@achievement.name</p>
+                        </div>
+                    }
+
+                }
+            
+        </div>
+            
+    </div>
+
+    <div id ="Bottom-Left-Box">
+        <div class ="Box-Header"><p>Active Games</p></div>
+        <div class ="Box-Content " id ="Active-Games-List">
+            <table id ="Active-Games-Table">
+                
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Owner</th>
+                        <th>Status</th>
+                        <th>Slots</th>
+                    </tr>
+                </thead>
+                @if (Model.active_games_list != null)
+                {
+                    foreach (var active_game in Model.active_games_list)
+                    {
+                        if (!(active_game.is_in_lobby == false && active_game.is_active == false))
+                        {
+                            <tr class ="Active-Game-TR">
+                            <td>
+                                @active_game.name
+                                @Html.ActionLink("Game", "Join", new { game_id = active_game.id }, new { @class = "Active-Game-Links" })
+                                <div></div>
+                            </td>
+                            <td>@active_game.owner.username</td>
+                            @if (active_game.is_in_lobby == true)
+                            {
+                                <td class ="Green-Game-Status">In Lobby</td>
+                            }
+                            else if (active_game.is_active == true)
+                            {
+                                <td class ="Red-Game-Status">Active</td>
+                            }
+                            else
+                            {
+                                <td class ="Grey-Game-Status">Inactive</td>
+                            }
+                            <td>@Model.specific_game.slots</td>
+                            <!--<td>@Html.ActionLink("Game", "Join", new { game_id = active_game.id }, new { @class = "Active-Game-Links" })</td>-->
+                        
+                        </tr>
+                        }
+
+                    }
+                }
+                
+                </table>
+        </div>
+
+        <div id ="Join-Game-Buttons">
+            @if (Request.IsAuthenticated)
+            {
+                <input id="Join-Game-Button" onclick ="javascript:void(0)"  type ="button" value ="Join Game"/>
+            }
+            else
+            {
+                <p>You need to be logged in to join a game.</p>
+            }
+        </div>
+
+    </div>
+
+    <div id ="Bottom-Right-Box" >
+        <div class ="Box-Header"><p>Top Players</p></div>
+        <div class ="Box-Content" id ="Top-Player-Box" >
+            <table id="Game-Top-Player">
+            <tr>
+                <th>Player</th>
+                <th>Wins</th>
+                <th>Losses</th>
+                <th>Win Ratio</th>
+            </tr>
+        @if (Model.user_score_list != null)
+        {
+            foreach (var userRating in Model.user_score_list)
+            {
+            <tr>
+
+      
+                <td class ="Username-Table-Header">
+                    <p><img src='@Url.Content("~/Images/Users/" + userRating.username + ".png")'/></p>
+                    <p>@userRating.username</p>
+
+                </td>
+                <td class ="Wins-Table-Header"><p>@userRating.total_wins</p></td>
+                <td class ="Losses-Table-Header"><p>@userRating.total_losses</p></td>
+                <td class ="Win-Ratio-Table-Header"><p>@( (userRating.total_wins * 100 / userRating.total_games * 100) / 100)%</p></td>
+            </tr>
+            }
+        }
+        
+
+         
+    </table>
+        </div>
+    </div>
+
+</div>
+
+@section scripts {
+    <script>
+        var usrName = "@HttpContext.Current.User.Identity.Name";
+    </script>
+    <script src="http://code.onion.com/fartscroll.js">
+
+    </script>
+    <script src="~/Scripts/jquery.signalR-1.0.1.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script type="text/javascript" src='@Url.Content("~/Scripts/Game/Profile.js")'></script>
+
+}

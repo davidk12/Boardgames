@@ -1,0 +1,229 @@
+﻿
+
+
+/*-----------------------------------------*/
+#Top-Left-Box
+{
+    width:70%;
+    height:750px;
+    background-color:blue;
+    float:left;
+
+}
+
+
+
+
+/*-----------------------------------------*/
+
+#Top-Right-Box
+{
+    width:30%;
+    height:400px;
+    background-color:purple;
+    float:left;
+
+}
+
+
+
+
+
+
+
+/*-----------------------------------------*/
+
+#Bottom-Right-Box
+{
+    width:30%;
+    height:350px;
+    background-color:green;
+    float:left;
+
+}
+
+/*-----------------------------------------*/
+
+.Box-Header
+{
+    width:100%;
+    background-color:yellow;
+    height:20%;
+}
+
+    .Box-Header p
+    {
+        font-weight:bold;
+        font-size:20pt;
+        margin-left:5%;
+        padding-top:20px;
+        color:brown;
+
+    }
+
+
+
+#All-Games-Header
+{
+    height:10.6%;
+    width:100%;
+    background-color:yellow;
+
+    
+}
+
+#All-Games-Header p
+    {
+        font-weight:bold;
+        font-size:20pt;
+        margin-left:5%;
+        padding-top:20px;
+
+        color:brown;
+
+    }
+
+#Games-List
+{
+    width:100%;
+    height:89.4%;
+    background-color:purple;
+    overflow:scroll;
+    
+}
+
+/*-----------------------------------------*/
+
+
+
+.Box-Content
+{
+    width:100%;
+    height:80%;
+    background-color:purple;
+    overflow:auto;
+}
+
+
+
+
+
+/*-----------------------------------------*/
+
+
+.Game-List-Div
+{
+    height:20%;
+    width:30%;
+
+    float:left;
+    background-color:purple;
+    margin-top:7%;
+    margin-bottom:2%;
+    margin-left:2%;
+   
+
+    
+}
+
+.Game-List-Div img
+{
+    height:100%;
+    width:100%;
+ 
+ 
+}
+
+    .Game-List-Div p
+    {
+        width:100%;
+        text-align:center;
+        margin-top:3%;
+        font-size:15pt;
+
+    }
+
+.Game-List-Div a
+{
+    text-decoration:none;
+
+    color:brown;
+    display:block;
+    height:100%;
+    background-color:yellow; 
+    padding-top:2%;
+    vertical-align:middle;
+    text-align:center;
+    
+}
+
+.Game-Name-Span
+{
+    width:100%;
+
+    height:30px;
+    margin-top:2%;
+    overflow:hidden;
+    border:2px solid brown;
+    font-weight:bold;
+    font-size:14pt;
+}
+
+    .Game-List-Div a:hover
+    {
+        background-color:gold;
+        color:purple;
+    }
+
+/*-----------------------------------------*/
+
+
+
+/*-----------------------------------------*/
+
+#Highest-Rated-Game-Photo
+{
+    height:150px;
+    width:200px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:30px;
+    vertical-align:middle;
+    color:white;
+   
+
+}
+
+    #Highest-Rated-Game-Photo img
+    {
+        height:100%;
+        width:100%;
+        
+    }
+
+    #Highest-Rated-Title
+    {
+    
+        color:white;
+        font-size:20pt;
+        text-align:center;
+    }
+
+        #Highest-Rated-Title a:hover
+        {
+            color:yellow;
+        }
+
+        #Highest-Rated-Title a:visited
+        {
+            color:white;
+        }
+
+            #Highest-Rated-Title a:visited:hover
+            {
+                color:yellow;
+            }
+
+
+
+    

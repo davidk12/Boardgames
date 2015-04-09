@@ -1,0 +1,13 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace Boardgames_webproject.Models
+{
+    public class GameVM
+    {
+        public Game specific_game {get; set;}
+        public List<Game> game_list { get; set; }
+    }
+}

@@ -1,0 +1,369 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Data.Entity;
+using System.Data.SqlClient;
+using System.Configuration;             // for Web.config
+
+namespace Boardgames_webproject.Models
+{
+    /// <summary>
+    /// A collection of operations to retrieve various data from the database
+    /// </summary>
+    public class BoardGameRepository
+    {
+
+        string connection_string = ConfigurationManager.ConnectionStrings["AppDataContext"].ConnectionString;
+
+        #region General User Operations
+
+        /// <summary>
+        /// Returns a list of all general users in the database
+        /// </summary>
+        /// <returns>Returns a List of User instances</returns>
+        public List<User> getAllUsers()
+        {
+            List<User> user_list = new List<User>();
+
+            using (SqlConnection conn = new SqlConnection(connection_string))
+            {
+                conn.Open();
+                using (SqlCommand command = new SqlCommand("select * from Users where user_type_FK = 2", conn))
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())                                                  // if the query returns results, the following loop iterates through them
+                    {
+                                                                                           // for each row returned, a new user instance is created and added to the list
+                        user_list.Add(new User{id = Convert.ToInt32(reader["ID"]),         // setting the user's ID
+                                               username = reader["username"].ToString(),   // setting the user's username
+                                               password = reader["passw"].ToString(),      // setting the user's password
+                                               bio = reader["bio"].ToString()
+                                              });
+                    }
+                }
+            }
+            return user_list;                                                       // returning the list
+        }
+
+
+
+        /// <summary>
+        /// Returns a single user with the id that was passed in
+        /// </summary>
+        /// <param name="user_id"></param>
+        /// <returns>If a user was found with the id passed in, otherwise null</returns>
+        public User getUserById(int user_id)
+        {
+            using (SqlConnection conn = new SqlConnection(connection_string))
+            {
+                conn.Open();
+                using (SqlCommand command = new SqlCommand("select * from Users where ID = " + user_id, conn))      // querying the database 
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())                                                                              // if the query was successful
+                    {
+                        User found_user = new User{ id = Convert.ToInt32(reader["ID"]),                             // setting the user's ID
+                                                    username = reader["username"].ToString(),                       // setting the user's username
+                                                    password = reader["passw"].ToString(),                          // setting the user's password
+                                                    bio = reader["bio"].ToString()                                  // setting the user's bio
+                                                   };
+                        return found_user;                                                                          // returning the user
+                    }
+                }
+            }
+
+            return null;                                                                                            // the user wasn't found, returns null
+        }
+
+        /// <summary>
+        /// Opens a connection to the database and attempts to increment a user's rating
+        /// </summary>
+        /// <param name="user_id">The ID of the user being rated</param>
+        /// <param name="rater_id">The ID of the user doing the rating</param>
+        /// <param name="game_id">The ID of the game instance</param>
+        public void rateUserUp(int user_id, int rater_id, int game_instance_id)
+        {
+                                                                                                       // TO IMPLEMENT!!!
+        }
+
+        /// <summary>
+        /// Opens a connection to the database and attempts to decrement a user's rating
+        /// </summary>
+        /// <param name="user_id">The ID of the user being rated</param>
+        /// <param name="rater_id">The ID of the user doing the rating</param>
+        /// <param name="game_id">The ID of the game instance</param>
+        public void rateUserDown(int user_id, int rater_id, int game_instance_id)
+        {
+                                                                                                      // TO IMPLEMENT!!!
+        }
+
+        #endregion
+
+        #region Statistics Operations
+
+        /// <summary>
+        /// Opens a connection to the database and retrieves total wins earned by a player
+        /// </summary>
+        /// <param name="user_id">The player's ID</param>
+        /// <returns>Returns the number of wins earned by a player</returns>
+        int getTotalPlayerWins(int user_id)
+        {
+            return 0;                                                                       // TO IMPLEMENT
+        }
+
+        /// <summary>
+        /// Opens a connection to the database and retrieves total losses earned by a player
+        /// </summary>
+        /// <param name="user_id">The player's ID</param>
+        /// <returns>Returns the number of losses earned by a player</returns>
+        int getTotalPlayerLosses(int user_id)
+        {
+            return 0;                                                                       // TO IMPLEMENT
+        }
+
+        /// <summary>
+        ///  Opens a connection to the database and retrieves the number of wins by a player in a certain game
+        /// </summary>
+        /// <param name="user_id">The player's ID</param>
+        /// <param name="game_id">The game's ID</param>
+        /// <returns>Returns number of wins by a player in a game</returns>
+        int getTotalWinsInGame(int user_id, int game_id)
+        {
+            return 0;                                                                      // TO IMPLEMENT
+        }
+
+        /// <summary>
+        ///  Opens a connection to the database and retrieves the number of losses by a player in a certain game
+        /// </summary>
+        /// <param name="user_id">The player's ID</param>
+        /// <param name="game_id">The game's ID</param>
+        /// <returns>Returns number of losses by a player in a game</returns>
+        int getTotalLossesInGame(int user_id, int game_id)
+        {
+            return 0;                                                                       // TO IMPLEMENT
+        }
+
+        /// <summary>
+        /// Opens a connection to the database and retrieves the number of games played by a player
+        /// </summary>
+        /// <param name="user_id">The player's ID</param>
+        /// <returns>Returns the total number of games played by a player</returns>
+        int getTotalGamesPlayed(int user_id)
+        {
+            return 0;                                                                        // TO IMPLEMENT
+        }
+
+        #endregion 
+
+        #region Game Operations
+
+        /// <summary>
+        /// Queries the database for all games and returns the result in a List
+        /// </summary>
+        /// <returns>Returns a list of games, or null if none are found</returns>
+        public List<Game> getAllGames()
+        {
+            using (SqlConnection conn = new SqlConnection(connection_string))
+            {
+                conn.Open();
+                List<Game> game_list = new List<Game>();
+                using (SqlCommand command = new SqlCommand("select * from Game", conn))
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    //string stuff = reader["ID"].ToString();
+                    
+                        while (reader.Read())                                           // if the query returns results, the following loop iterates through its rows
+                        {
+
+                            game_list.Add(new Game                                      // for each row in the result, a new game instance is created and added to the list
+                            {
+                                id = Convert.ToInt32(reader["ID"]),                     // setting the game's ID     
+                                name = reader["name"].ToString(),                       // setting the game's name
+                                description = reader["game_description"].ToString(),    // setting the game's description
+                                slots = Convert.ToInt32(reader["slots"])                // setting the game's slots
+                            });
+                        }
+                        return game_list;                                               // returning the list
+                    
+                   
+                }
+            }
+
+            return null;                                                                // if the query result was empty, null is returned
+            
+        }
+
+        /// <summary>
+        /// Returns a single instance of a game with the id of the passed in parameter
+        /// </summary>
+        /// <param name="game_id">The id of the game to fetch</param>
+        /// <returns>Returns an instance of a game if one is found, otherwise null</returns>
+        public Game getGameById(int game_id)
+        {
+
+            using (SqlConnection conn = new SqlConnection(connection_string))
+            {
+                conn.Open();
+                using (SqlCommand command = new SqlCommand("select * from Game where ID = " + game_id, conn))      // querying the database 
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())                                                                              // if the query was successful
+                    {
+                        Game found_game = new Game
+                        {
+                            id = Convert.ToInt32(reader["ID"]),                              // setting the game's ID
+                            name = reader["name"].ToString(),                                // setting the game's name
+                            description = reader["game_description"].ToString(),             // setting the game's description
+                            slots = Convert.ToInt32(reader["slots"])                         // setting the game's slots
+                        };
+                        return found_game;                                                   // returning the game
+                    }
+                }
+            }
+            return null;                                                                    // otherwise, return null
+        }
+
+        /// <summary>
+        /// Opens a connection to the database and retrieves all active game instances
+        /// </summary>
+        /// <returns>Returns a list of game instances</returns>
+        public List<GameInstance> getAllActiveGames()
+        {
+            return null;                                                                    // TO IMPLEMENT!!!
+        }
+
+        public GameInstance getActiveGameById(int game_instance_id)
+        {
+            return null;                                                                    // TO IMPLEMENT!!!
+        }
+
+
+        /// <summary>
+        /// Opens a connection to the database and fetches all announcements for a certain game
+        /// </summary>
+        /// <param name="game_id">The id of the game to fetch announcements for</param>
+        /// <returns>Returns a List of all announcements for a specific game</returns>
+        public List<Announcement> getAllGameAnnouncements(int game_id)
+        {
+            using (SqlConnection conn = new SqlConnection(connection_string))
+            {
+                conn.Open();
+                List<Announcement> announcement_list = new List<Announcement>();
+                using (SqlCommand command = new SqlCommand("select * from GameAnnouncements where game_FK =" + game_id, conn))  
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+
+                    while (reader.Read())                                            // if the query returns results, the following loop iterates through its rows
+                    {
+                        announcement_list.Add(new Announcement                       // for each row in the result, 
+                        {                                                            // a new announcement instance is created and added to the list
+                            time_stamp = Convert.ToDateTime(reader["time_stamp"]),   // setting the game's timestamp
+                            game_id = Convert.ToInt32(reader["game_FK"]),            // setting the game id of the announcement
+                            title = reader["title"].ToString(),                      // setting the title of the announcement
+                            body = reader["body"].ToString()                         // setting the announcement body
+                        });
+                    }
+                    return announcement_list;                                        // returning the list
+                }
+            }
+        }
+
+        #endregion
+
+        #region Form Operations
+
+        #endregion
+
+        #region Achievement Operations
+
+
+        /// <summary>
+        /// Opens a connection to the database, fetches all Achievements 
+        /// corresponding to the supplied game ID and 
+        /// </summary>
+        /// <param name="game_id"> The id of the game the achievement list belongs to</param>
+        /// <returns>Returns a List of achievements if found</returns>
+        public List<Achievement> getGameAchievements(int game_id)
+        {
+
+            List<Achievement> achievement_list = new List<Achievement>();
+
+            using (SqlConnection conn = new SqlConnection(connection_string))
+            {
+                conn.Open();
+                using (SqlCommand command = new SqlCommand("select * from Achievements where game_FK = " + game_id, conn))
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())                                           // if the query returns results, the following loop iterates through them
+                    {                                                               // for each row returned, a new achievement instance is created and added to the list
+                        achievement_list.Add(new Achievement
+                        {
+                            achievement_id = Convert.ToInt32(reader["ID"]),         // setting the achievement's ID
+                            name = reader["name"].ToString(),                       // setting the achievement's name
+                            description = reader["game_description"].ToString(),    // setting the achievement's description
+                            game_id = Convert.ToInt32(reader["game_FK"])            // setting achievement's game ID (the ID of the game it belongs to)
+                        });
+                    }
+                }
+            }
+            return achievement_list;            
+        }
+
+
+        /// <summary>
+        /// Returns all achievements earned by a single user
+        /// </summary>
+        /// <param name="user_id">The id of the user</param>
+        /// <returns>Returns a list of achievements earned by a user</returns>
+        List<Achievement> getUserAchievements(int user_id)                           // TO IMPLEMENT!!!!
+        {
+
+            return null;                                                                    
+        }
+
+
+        /// <summary>
+        /// Opens a connection to the database and returns a single Achievement with the ID sent as an argument
+        /// </summary>
+        /// <param name="achievement_id">The ID of the Achievement to be fetched    </param>
+        /// <returns>Returns a single Achievement instance if one is found, otherwise null</returns>
+        public Achievement getAchievement(int achievement_id)
+        {
+            Achievement found_achievement;
+            string command_string = null;
+
+            using (SqlConnection conn = new SqlConnection(connection_string))                    // opening a new connection
+            {
+                conn.Open();
+                command_string = "select * from Achievements where ID = " + achievement_id;      // string containing the SQL query
+                using (SqlCommand command = new SqlCommand(command_string, conn))                // preparing the query
+                using (SqlDataReader reader = command.ExecuteReader())                           // executing the query
+                {
+                    if (reader.Read())                                                           // if the query returns results, this conditional runs
+                    {                                                            
+                        found_achievement = (new Achievement                                     // creating a new Achievement instance with the results
+                        {
+                            achievement_id = Convert.ToInt32(reader["ID"]),                      // setting the achievement's ID
+                            name = reader["name"].ToString(),                                    // setting the achievement's name
+                            description = reader["achievement_description"].ToString(),          // setting the achievement's description
+                            game_id = Convert.ToInt32(reader["game_FK"])                         // setting achievement's game ID (the ID of the game it belongs to)
+                        });
+                        return found_achievement;                                                // returning the found achievement
+                    }
+                }
+            }
+            return null;                                                                         // if this line is reached, the achievement isn't found
+        }
+
+
+
+
+
+
+        #endregion
+
+
+
+    }
+}

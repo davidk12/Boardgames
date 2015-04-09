@@ -1,0 +1,357 @@
+﻿
+
+
+/*-----------------------------------------*/
+#Top-Left-Box
+{
+    width:70%;
+    height:400px;
+    background-color:blue;
+    float:left;
+}
+
+
+    #Top-Left-Box .Box-Content
+    {
+        background-color:gold;
+    }
+
+/*-----------------------------------------*/
+
+#Top-Right-Box
+{
+    width:30%;
+    height:400px;
+    background-color:purple;
+    float:left;
+
+}
+
+
+
+/*-----------------------------------------*/
+
+#Bottom-Left-Box
+{
+    width:35%;
+    height:350px;
+    background-color:blue;
+    float:left;
+
+}
+
+
+#Bottom-Middle-Box
+{
+    width:35%;
+    height:350px;
+    background-color:blue;
+    float:left;
+
+}
+
+
+
+
+/*-----------------------------------------*/
+
+#Bottom-Right-Box
+{
+    width:30%;
+    height:350px;
+    background-color:green;
+    float:left;
+
+}
+
+/*-----------------------------------------*/
+
+.Box-Header
+{
+    width:100%;
+    background-color:yellow;
+    height:20%;
+}
+
+    .Box-Header p
+    {
+        font-weight:bold;
+        font-size:20pt;
+        margin-left:5%;
+        padding-top:20px;
+        color:brown;
+
+    }
+
+/*-----------------------------------------*/
+
+
+
+.Box-Content
+{
+    width:100%;
+    height:80%;
+    background-color:purple;
+    overflow:auto;
+}
+
+#Bottom-Middle-Content
+{
+    background-color:red;
+}
+
+/*-----------------------------------------*/
+
+.Achievement-List-Div
+{
+    margin-top:20px;
+    height:100px;
+    width:100px;
+    margin-left:20px;
+    float:left;
+    background-image: url('/Images/Games/achievement_box.png');
+    background-size: 100%; 
+}
+
+    .Achievement-List-Div:hover
+    {
+        cursor:pointer;
+    }
+
+    .Achievement-List-Div p
+    {
+        color:white;
+        text-align:center;
+    }
+
+.Achievement-List-Div img
+{
+    height:100px;
+    width:100px;
+}
+
+.Achievement-Description-Div
+{
+    
+    position:absolute;
+    height:100px;
+    width:100px;
+    background-color:yellow;
+    font-weight:bold;
+    border:3px solid gold;    
+    display:none;
+  
+}
+
+    .Achievement-Description-Div p
+    {
+        text-align:center;
+        vertical-align:bottom;
+        margin-top:10px;
+        color:brown;
+    }
+
+
+/*-----------------------------------------*/
+
+.Username-Avatar-In-List
+{
+    width:75px;
+    height:75px;
+}
+
+
+#Player-List-Table td
+{
+    
+    border-right:1px solid purple;
+    vertical-align:middle;
+    text-align:center;
+}
+
+#Player-List-Table
+{
+    background-color:yellow;
+    width:100%;
+    font-weight:bold;
+    color:brown;
+    cursor:pointer;
+}
+
+#Player-List-Table th
+{
+    background-color:gold;
+    text-align:left;
+    border:1px solid purple;
+    padding:10px;
+
+    height:25px;
+    text-align:center;
+
+}
+
+.Playerlist-Table-Head
+{
+    height:20px;
+}
+
+#User-Avatar-th
+{
+    width:5%;
+}
+
+#Username-th
+{
+    width:37.5%;
+}
+
+#User-Rating-th
+{
+    width:37.5%;
+}
+
+#Profile-Link-th
+{
+    width:10%;
+}
+
+
+
+.Username-Avatar-td
+{
+    background-color:gold;
+}
+
+
+
+    #Player-List-Table tr
+    {
+        border-bottom: 1px solid purple;
+    }
+
+
+
+
+.Positive-Rating
+{
+    color: green;
+}
+
+.Negative-Rating
+{
+    color:red;
+}
+/*-----------------------------------------*/
+
+#Game-Top-Player
+{
+    width:100%;
+    height:100%;
+    color:brown;
+    background-color:yellow;  
+
+}
+
+#Top-Player-Box
+{   
+    border-top:1px solid purple;
+    border-bottom:1px solid purple;
+}
+
+#Game-Top-Player th
+{
+    height:30px;
+    background-color:gold;
+    color:brown;
+    border-bottom:1px solid purple;
+    padding-top:10px;
+}
+
+#Game-Top-Player td
+{
+    height:60px;
+    padding:10px;
+    border-bottom:1px solid purple;
+}
+
+#Game-Top-Player td p
+{
+    text-align:center;
+}
+
+.Win-Ratio.Table-Header
+{
+    width:25%;
+
+}
+
+    #Game-Top-Player tr td img
+    {
+        border:1px solid purple;
+        width:80%;
+        height:80%;
+        padding:2%;
+        
+     
+    }
+
+.Username-Table-Header, .Wins-Table-Header, .Losses-Table-Header
+{
+    width:25%;
+}
+
+
+/*-----------------------------------------*/
+/*CHAT BOX*/
+
+#Lobby-Chat-Window
+{
+    height:69%;
+    background-color:yellow;
+    color:brown;
+    border:1px solid purple;
+    width:99.5%;
+}
+
+#message
+{
+    width:80%;  
+    float:left;
+    height:70%;
+    margin-top:2px;
+    
+}
+
+#sendmessage
+{
+    height:100%;
+    width:18%;
+    float:right;
+}
+
+
+#Lobby-Chat-Div
+{
+    height:10%;
+    overflow:hidden;
+    border:1px solid purple;
+    width:99.5%;
+}
+
+.Chat-Message
+{
+    padding-left:10px;
+    margin-top:10px;
+}
+
+.Chat-Message-Username
+{
+    color:black;
+}
+
+
+
+.Chat-Intro
+{
+    text-align:center;  
+}

@@ -1,0 +1,110 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+
+}
+
+<div id="Main-Box">
+
+    <!-- það sem razor á að búa til -->
+    <div class="Game-Icon">
+        <img src="http://www.macprovideo.com/trainers/stevehorowitz/tutorials/game-audio-101-demystifying-game-audio/190_256.jpg" alt="AWESOME COOL" />
+        <span>@Html.ActionLink("Game Name", "GameLobby", "Game")</span>
+    </div>
+    <!-- það sem razor á að búa til -->
+
+
+    <!-- Henda þessu þegar Razor kemur -->
+    <div class="Game-Icon">
+        <img src="http://www.macprovideo.com/trainers/stevehorowitz/tutorials/game-audio-101-demystifying-game-audio/190_256.jpg" alt="AWESOME COOL" />
+        <span>Game Name</span>
+    </div>
+
+    <div class="Game-Icon">
+        <img src="http://www.macprovideo.com/trainers/stevehorowitz/tutorials/game-audio-101-demystifying-game-audio/190_256.jpg" alt="AWESOME COOL" />
+        <span>Game Name</span>
+    </div>
+
+    <div class="Game-Icon">
+        <img src="http://www.macprovideo.com/trainers/stevehorowitz/tutorials/game-audio-101-demystifying-game-audio/190_256.jpg" alt="AWESOME COOL" />
+        <span>Game Name</span>
+    </div>
+
+   <div class="Game-Icon">
+        <img src="http://www.macprovideo.com/trainers/stevehorowitz/tutorials/game-audio-101-demystifying-game-audio/190_256.jpg" alt="AWESOME COOL" />
+        <span>Game Name</span>
+    </div>
+
+    <div class="Game-Icon">
+        <img src="http://www.macprovideo.com/trainers/stevehorowitz/tutorials/game-audio-101-demystifying-game-audio/190_256.jpg" alt="AWESOME COOL" />
+        <span>Game Name</span>
+    </div>
+
+    <div class="Game-Icon">
+        <img src="http://www.macprovideo.com/trainers/stevehorowitz/tutorials/game-audio-101-demystifying-game-audio/190_256.jpg" alt="AWESOME COOL" />
+        <span>Game Name</span>
+    </div>
+
+    <div class="Game-Icon">
+        <img src="http://www.macprovideo.com/trainers/stevehorowitz/tutorials/game-audio-101-demystifying-game-audio/190_256.jpg" alt="AWESOME COOL" />
+        <span>Game Name</span>
+    </div>
+
+    <div class="Game-Icon">
+        <img src="http://www.macprovideo.com/trainers/stevehorowitz/tutorials/game-audio-101-demystifying-game-audio/190_256.jpg" alt="AWESOME COOL" />
+        <span>Game Name</span>
+    </div>
+
+    <div class="Game-Icon">
+        <img src="http://www.macprovideo.com/trainers/stevehorowitz/tutorials/game-audio-101-demystifying-game-audio/190_256.jpg" alt="AWESOME COOL" />
+        <span>Game Name</span>
+    </div>
+    <!-- Henda þessu þegar Razor kemur -->
+</div>
+
+<div id="Top-Right-Content-Box">
+    <span>Highest Rated Game</span>
+
+    <div id="Highest-Rated-Game">
+        
+    </div>
+
+</div>
+
+<div id="Bottom-Right-Content-Box">
+    <span>Highest Rated Player</span>
+
+    <table id="Highest-Rated-Player-Table">
+            <tr>
+                <th>Name</th>
+                <th>Rating</th>
+            </tr>
+        <!-- það sem razor á að búa til -->
+        <tr>
+            <td>Sveinn</td>
+            <td>137</td>
+        </tr>
+        <!-- það sem razor á að búa til -->
+
+        <!-- Henda þessu þegar Razor kemur -->
+        <tr>
+            <td>Siddi</td>
+            <td>75</td>
+        </tr>
+        <tr>
+            <td>Aron</td>
+            <td>46</td>
+        </tr>
+        <tr>
+            <td>Unnar</td>
+            <td>23</td>
+        </tr>
+        <tr>
+            <td>David</td>
+            <td>3</td>
+        </tr>
+        <!-- Henda þessu þegar Razor kemur -->
+    </table>
+
+</div>

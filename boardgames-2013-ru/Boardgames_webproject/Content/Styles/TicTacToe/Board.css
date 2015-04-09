@@ -1,0 +1,397 @@
+﻿#Board-Box
+{
+    width:70%;
+    height:700px;
+    background-color:purple;
+    float:left;
+    overflow:auto;
+    /*background-image: url('/Images/flash.gif');*/
+}
+
+/*-----------------------------------------*/
+
+#Chat-Box
+{
+    width:30%;
+    height:325px;
+    background-color:purple;
+    float:right;
+}
+
+    #Chat-Box .Box-Content
+    {
+        width:100%;
+        height:67%;
+    }
+
+#Chat-Widgets-Div
+{
+    width:100%;
+    height:10%; 
+    margin-bottom:100px;
+}
+
+#Chat-Message-Field
+{
+    height:100%;
+    width:80%;
+
+}
+
+#Chat-Box-Field
+{
+    overflow:auto;
+}
+
+#Send-Message-Button
+{
+    height:100%;
+    width:17%;
+}
+
+
+/*-----------------------------------------*/
+
+#Player-List-Box
+{
+    width:30%;
+    height:325px;
+    background-color:yellow;
+    float:right;
+
+}
+
+/*-----------------------------------------*/
+
+#Player-List-Content
+{
+    background-color:yellow;
+}
+
+/*-----------------------------------------*/
+
+.Username-Avatar-In-List
+{
+    width:75px;
+    height:75px;
+}
+
+
+#Player-List-Table td
+{
+    
+    border-right:1px solid purple;
+    vertical-align:middle;
+    text-align:center;
+}
+
+#Player-List-Table
+{
+    background-color:yellow;
+    width:100%;
+    font-weight:bold;
+    color:brown;
+    cursor:pointer;
+}
+
+#Player-List-Table th
+{
+    background-color:gold;
+    text-align:left;
+    border:1px solid purple;
+    padding:10px;
+
+    height:25px;
+    text-align:center;
+
+}
+
+.Playerlist-Table-Head
+{
+    height:20px;
+}
+
+#User-Avatar-th
+{
+    width:5%;
+}
+
+#Username-th
+{
+    width:37.5%;
+}
+
+#User-Rating-th
+{
+    width:37.5%;
+}
+
+#Profile-Link-th
+{
+    width:10%;
+}
+
+
+
+.Username-Avatar-td
+{
+    background-color:gold;
+}
+
+
+
+    #Player-List-Table tr
+    {
+        border-bottom: 1px solid purple;
+    }
+
+
+
+
+.Positive-Rating
+{
+    color: green;
+}
+
+.Negative-Rating
+{
+    color:red;
+}
+/*-----------------------------------------*/
+
+/*-----------------------------------------*/
+
+#Button-Box
+{
+    width:30%;
+    height:50px;
+    background-color:orange;
+    float:right;
+}
+
+
+#Board-Table
+{
+    background-color:pink;
+
+    width:80%;
+    height:80%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:8%;
+}
+
+    #Board-Table td
+    {
+        border:1px solid black;
+        
+    }
+
+.Board-Cell
+{
+    width:33.33%;
+    height:33.33%;
+    vertical-align:middle;
+    text-align:center;
+    font-size:120pt;
+}
+
+
+
+
+/*-----------------------------------------*/
+
+
+.Box-Header
+{
+    width:100%;
+    background-color:yellow;
+    height:20%;
+}
+
+    .Box-Header p
+    {
+        font-weight:bold;
+        font-size:20pt;
+        margin-left:5%;
+        padding-top:20px;
+        color:brown;
+
+    }
+
+
+/*
+
+
+.Box-Content
+{
+    width:100%;
+    height:80%;
+    background-color:purple;
+    overflow:auto;
+}
+
+*/
+
+
+/*-----------------------------------------*/
+/*CHAT BOX*/
+
+#Chat-Box-Field
+{
+    background-color:yellow;
+    color:brown;
+    border:1px solid purple;
+}
+
+
+
+.Chat-Message
+{
+    padding-left:10px;
+    margin-top:10px;
+}
+
+.Chat-Message-Username
+{
+    color:black;
+}
+
+
+
+.Chat-Intro
+{
+    text-align:center;  
+}
+
+/*-----------------------------------------*/
+
+#Widget-Header
+{
+    height:20px;
+}
+
+/*-----------------------------------------*/
+
+#Options-Button
+{
+    height:50px;
+    width:100%;
+    float:left;
+}
+
+#Exit-Button
+{
+
+    width:100%;
+    height:100%;
+}
+
+#Options-Div
+{
+    height:70px;
+    width:15%;
+    margin-left:62%;
+    margin-top:10%;
+    border:5px solid purple;
+    position:Fixed; 
+    display:none; 
+ 
+    background-color:yellow;
+}
+
+#Options-Div-Header
+{
+    border-bottom:5px solid purple;
+    width:100%;
+    height:10%;
+    background-color:gold;
+    cursor:pointer;
+}
+    
+    #Options-Div ul
+    {
+        list-style-type:none;
+    }
+
+#Exit-Options-Div
+{
+}
+
+
+
+#Sekrit-Div
+{
+    height:500px;
+    width:20px;
+    margin-left:-20%;
+    margin-top:20%;
+    position:Fixed; 
+
+ 
+
+}
+
+#Image-Div 
+{
+    height:400px;
+    width:400px;
+    margin-left:15%;
+    position:Fixed; 
+    background-color:red;
+    display:none;
+    background-image: url('/Images/flash.gif');
+    border:10px solid yellow;
+    padding:5%;
+}
+
+    #Image-Div img
+    {
+        height:100%;
+        width:50%;
+        margin-left:25%;
+        margin-top:0%;
+
+        
+    }
+
+#Options-Div-Header div 
+{
+    text-align:center;
+    width:85%;
+    height:100%;
+    float:left;
+}
+
+.Cell-Image
+{
+
+}
+
+
+#Options-Div-Header div + div
+{
+    float:right;
+    background-color:gold;
+    border-left:5px solid purple;
+    height:100%;
+    width:5%;
+    font-weight:bold;
+    font-size:10pt;
+    text-align:center;
+
+}
+
+    #Options-Div-Header div + div:hover
+    {
+        background-color:purple;
+        cursor:pointer;
+        
+    }
+
+.button
+{
+    cursor:pointer;
+}
+
+/*-----------------------------------------*/

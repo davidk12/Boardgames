@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+
+}
+@Styles.Render("~/Content/Styles/Home/Index.css")
+
+<div id ="Entire-Partial-View">
+
+
+    <div id ="Top-Left-Box">
+
+
+        <div id ="All-Games-Header" ><p>All Games</p></div>
+        <div id ="Games-List">
+
+            @foreach (var game in Model.game_list)
+            {
+                string name = game.name;
+                
+                <div class ="Game-List-Div">
+                    <img src='@Url.Content("~/Images/Games/"+name+"icon.png")'/>
+
+                    <div class ="Game-Name-Span">@Html.ActionLink(name, "Profile", "Game",new { game_id = game.id },null)</div>
+                </div>
+            }
+
+        </div>
+    </div>
+
+    <div id ="Top-Right-Box">
+        
+        
+        <div class ="Box-Header"><p>Highest Rated Game</p></div>
+
+            
+        <div class ="Box-Content">
+            <div id ="Highest-Rated-Game-Photo">
+                <img src='@Url.Content("~/Images/Games/"+Model.highest_rated_game.name+"icon.png")'/>
+            </div>
+               @{
+                    string highest_rated_name = Model.highest_rated_game.name;
+                    int highest_rated_id = Model.highest_rated_game.id;
+                    <p id ="Highest-Rated-Title">@Html.ActionLink(highest_rated_name, "Profile", "Game",new { game_id = highest_rated_id },null)</p>
+                }
+            
+        </div>
+            
+    </div>
+
+
+    <div id ="Bottom-Right-Box">
+        <div class ="Box-Header"><p>Top Players</p></div>
+        <div class ="Box-Content"></div>
+    </div>
+
+</div>
+
+
+@section scripts {
+    <script>
+        var usrName = "@HttpContext.Current.User.Identity.Name";
+    </script>
+
+    <script type="text/javascript" src='@Url.Content("~/Scripts/corner.js")'></script>
+    <script type="text/javascript" src='@Url.Content("~/Scripts/Home/Index.js")'></script>
+    <script src="~/Scripts/jquery.signalR-1.0.1.js"></script>
+    <script src="~/signalr/hubs"></script>
+    
+
+}

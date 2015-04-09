@@ -1,0 +1,48 @@
+﻿@model Boardgames_webproject.Models.LoginModel
+ 
+@{
+    ViewBag.Title = "Log in";
+}
+@Styles.Render("~/Content/Styles/Account/Login.css")
+ 
+<div id ="Top-Left-Box">
+    <hgroup class="title">
+        <h1>@ViewBag.Title</h1>
+    </hgroup>
+ 
+        @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+               
+            <div id="loginBox">
+                <form>
+                    <ul>
+                        <li>
+                            @Html.LabelFor(m => m.UserName)
+                            @Html.TextBoxFor(m => m.UserName)
+                            @Html.ValidationMessageFor(m => m.UserName)
+                        </li>
+                        <li>
+                            @Html.LabelFor(m => m.Password)
+                            @Html.PasswordFor(m => m.Password)
+                            @Html.ValidationMessageFor(m => m.Password)
+                        </li>
+                    </ul>
+ 
+                    <div id="lower">
+                        <div id="checkbox">
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+                        </div>
+                           
+                        <input type="submit" value="Log in" id="button" />
+ 
+                        <p>
+                            @Html.ActionLink("Register", "Register") if you don't have an account
+                        </p>                            
+                    </div>
+                </form>
+            </div>
+        }
+ 
+    </div>

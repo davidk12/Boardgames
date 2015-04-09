@@ -1,0 +1,60 @@
+﻿@model Boardgames_webproject.Models.LocalPasswordModel
+@{
+    ViewBag.Title = "Manage Account";
+}
+@Styles.Render("~/Content/Styles/Account/Manage.css")
+
+<div id ="Entire-Partial-View">
+    <div id ="Top-Left-Box">
+        @if (ViewBag.HasLocalPassword)
+        {
+            <div class ="Box-Header"><p>@ViewBag.Title. | Change Password</p></div>
+        }   
+        else
+        { 
+             <div class ="Box-Header"><p>@ViewBag.Title.</p></div>
+        }
+        
+        <div class ="Box-Content">
+
+
+
+                <p class="Status-Message">@ViewBag.StatusMessage</p>
+
+                <p></p>
+                <div id ="Password-Div">
+                @if (ViewBag.HasLocalPassword)
+                {
+                    @Html.Partial("_ChangePasswordPartial")
+                }   
+                else
+                { 
+                    @Html.Partial("_SetPasswordPartial")
+                }
+                   </div>
+
+
+
+                @section Scripts {
+                    @Scripts.Render("~/bundles/jqueryval")
+                }
+
+        </div>
+    </div>
+
+    <div id ="Top-Right-Box">
+        
+        
+        <div class ="Box-Header"><p>You're logged in as <strong>@User.Identity.Name</strong>.</p></div>
+
+            
+        <div class ="Box-Content">
+            <img class =" Current-User-Photo" src='@Url.Content("~/Images/Users/"+ User.Identity.Name+".png")'/>
+            
+        </div>
+            
+    </div>
+
+
+
+</div>

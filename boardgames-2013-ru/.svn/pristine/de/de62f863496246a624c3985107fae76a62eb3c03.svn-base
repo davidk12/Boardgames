@@ -1,0 +1,172 @@
+﻿@{
+    ViewBag.Title = "GameLobby";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="Main-Box">
+
+    <h2 id="Game-Name">Ludo</h2>
+    <span id="Game-Rating">90</span>
+    <hr />
+    <span id="Game-Description-header">Description</span>
+    <div id="Game-Avatar">
+
+    </div>
+    <div id="Game-Description-Box"> 
+        <p>Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.
+        Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.</p>
+
+    </div>
+    <div id="Active-Games">
+        <span>Active Games</span>
+        <div id="Active-Game-Table-Box">
+            <table id="Active-Game-Table">
+                <tr>
+                    <th>Opne Slots</th>
+                    <th>Owner</th>
+                </tr>   
+               <!-- það sem razor á að búa til -->
+                <tr>
+                    <td>2</td>
+                    <td>Sveinn</td>
+                </tr>
+                <!-- það sem razor á að búa til -->
+
+                <!-- Henda þessu þegar Razor kemur -->
+                <tr>
+                    <td>2</td>
+                    <td>Sveinn</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Sveinn</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Sveinn</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Sveinn</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Sveinn</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Sveinn</td>
+                </tr>
+                <!-- Henda þessu þegar Razor kemur -->
+            </table>
+        </div>
+        <button id="Join-Game-Button">Join Game</button>
+        <button id="Create-Game-Button">Create Game</button>
+    </div>
+
+
+</div>
+
+
+<div id="Top-Right-Content-Box">
+    <span>Achievements</span>
+    
+    <div id="Game-Achievement-Box">
+        <!-- það sem razor á að búa til -->
+        <div class="Game-Achievement">
+            <img src="http://2.bp.blogspot.com/-xfyuULgzF3A/TxCYILbTIbI/AAAAAAAADks/6v1g0jg9Mvg/s400/Fotolia_award_icon_5173807_XS.jpg" alt="Some Award" />
+            <span>Ludo Newb</span>
+        </div>
+        <!-- það sem razor á að búa til -->
+
+        <!-- Henda þessu þegar Razor kemur -->
+
+        <div class="Game-Achievement">
+            <img src="http://2.bp.blogspot.com/-xfyuULgzF3A/TxCYILbTIbI/AAAAAAAADks/6v1g0jg9Mvg/s400/Fotolia_award_icon_5173807_XS.jpg" alt="Some Award" />
+            <span>Ludo Newb</span>
+        </div>
+
+        <div class="Game-Achievement">
+            <img src="http://2.bp.blogspot.com/-xfyuULgzF3A/TxCYILbTIbI/AAAAAAAADks/6v1g0jg9Mvg/s400/Fotolia_award_icon_5173807_XS.jpg" alt="Some Award" />
+            <span>Sperm Donor</span>
+        </div>
+
+        <div class="Game-Achievement">
+            <img src="http://2.bp.blogspot.com/-xfyuULgzF3A/TxCYILbTIbI/AAAAAAAADks/6v1g0jg9Mvg/s400/Fotolia_award_icon_5173807_XS.jpg" alt="Some Award" />
+            <span>H4x0r</span>
+        </div>
+
+        <div class="Game-Achievement">
+            <img src="http://2.bp.blogspot.com/-xfyuULgzF3A/TxCYILbTIbI/AAAAAAAADks/6v1g0jg9Mvg/s400/Fotolia_award_icon_5173807_XS.jpg" alt="Some Award" />
+            <span>H4x0r</span>
+        </div>
+
+        <div class="Game-Achievement">
+            <img src="http://2.bp.blogspot.com/-xfyuULgzF3A/TxCYILbTIbI/AAAAAAAADks/6v1g0jg9Mvg/s400/Fotolia_award_icon_5173807_XS.jpg" alt="Some Award" />
+            <span>H4x0r</span>
+        </div>
+
+        <div class="Game-Achievement">
+            <img src="http://2.bp.blogspot.com/-xfyuULgzF3A/TxCYILbTIbI/AAAAAAAADks/6v1g0jg9Mvg/s400/Fotolia_award_icon_5173807_XS.jpg" alt="Some Award" />
+            <span>H4x0r</span>
+        </div>
+
+        <div class="Game-Achievement">
+            <img src="http://2.bp.blogspot.com/-xfyuULgzF3A/TxCYILbTIbI/AAAAAAAADks/6v1g0jg9Mvg/s400/Fotolia_award_icon_5173807_XS.jpg" alt="Some Award" />
+            <span>H4x0r</span>
+        </div>
+
+        <div class="Game-Achievement">
+            <img src="http://2.bp.blogspot.com/-xfyuULgzF3A/TxCYILbTIbI/AAAAAAAADks/6v1g0jg9Mvg/s400/Fotolia_award_icon_5173807_XS.jpg" alt="Some Award" />
+            <span>H4x0r</span>
+        </div>
+
+        <div class="Game-Achievement">
+            <img src="http://2.bp.blogspot.com/-xfyuULgzF3A/TxCYILbTIbI/AAAAAAAADks/6v1g0jg9Mvg/s400/Fotolia_award_icon_5173807_XS.jpg" alt="Some Award" />
+            <span>H4x0r</span>
+        </div>
+
+        <!-- Henda þessu þegar Razor kemur -->
+    </div>
+</div>
+
+<div id="Bottom-Right-Content-Box">
+    <span>Highest Rated Player</span>
+
+    <table id="Game-Top-Player">
+            <tr>
+                <th>Name</th>
+                <th>Wind</th>
+                <th>Lossess</th>
+                <th>Win Ratio</th>
+            </tr>
+        <!-- það sem razor á að búa til -->
+        <tr >
+            <td>Sveinn</td>
+            <td>15</td>
+            <td>5</td>
+            <td>75%</td>
+        </tr>
+        <!-- það sem razor á að búa til -->
+
+        <!-- Henda þessu þegar Razor kemur -->
+
+         <tr >
+            <td>Bjarni</td>
+            <td>10</td>
+            <td>10</td>
+            <td>50%</td>
+        </tr>
+
+        <tr >
+            <td>David</td>
+            <td>2</td>
+            <td>48</td>
+            <td>4%</td>
+        </tr>
+
+        <!-- Henda þessu þegar Razor kemur -->
+    </table>
+
+</div>
